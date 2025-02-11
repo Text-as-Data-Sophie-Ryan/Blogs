@@ -1,0 +1,25 @@
+---
+title: "Blog Post One"
+format: html
+editor: visual
+---
+
+## Introduction
+
+My name is Sophie Ryan, I am a Data Analytics and Computational Social Sciences graduate student with a background in Communications and Media Studies and Psychology. My studies have inspired a passion for learning about how people interact with each other and the world around them. I love using data as a way to deepen my understanding of the social sciences from a new perspective.
+
+In my undergraduate degree, I took a course called Countercultural Films. I was able to learn about the counterculture movement of the 1960's through the perspective of media and music. I believe music is one of the most powerful forms of communication we have, and it is truly reflective of social attitudes. During this time, rock music was extremely politically charged and played a huge role in giving young people a voice. After Kennedy's assassination, this political and cultural phenomenon spread anti-war, anti-establishment, and pro-peace messages through music and film. The pinnacle of this movement was the Woodstock Festival in 1969, where influential artists like Jimi Hendrix, Bob Dylan, and Joan Baez gave legendary performances that protested the government and promoted social justice. Hundreds of thousands of people came together at the festival to show solidarity. Moments like this display how important music can be in politics and culture. It acted not just as entertainment, but a catalyst for change and representation of public opinion.
+
+## Research Question
+
+My goal is to dive deeper into this political and social movement through the lense of text-as-data. How did the sentiment and themes of counterculture rock music differ from the mainstream political messages from the United States government, particularly in relation to the Vietnam War, social justice, and civil rights?
+
+## Corpora
+
+The corpora I plan to use for the music portion of this project will come from the Billboard Charts and Lyric Genius APIs. This will allow me to see the most popular and influential music, and access the lyrics to those songs to conduct further analysis. MSU's underground press and alternative newspaper collection could be used as a supplemental source representative of the counterculture movement's messages.
+
+For my analysis of mainstream political messages from the time, I will use ProQuest's archives of historical newspapers. Additionally, I will investigate the Miller Center UVA speech archive, which provides transcripts of presidential speeches.
+
+## Wrapping Up
+
+I'm looking forward to using text analysis to dive deeper into how music was representative of the political and social unrest of the 1960's. Many of the lyrics from these artists openly criticized the government, the war, and racial injustice. The Lyric Genius corpora will be a great source for identifying themes, sentiments, and word frequencies. Mainstream newspaper articles will show how politics were being presented. Presidential speeches are also a good representation of the messages that the government was trying to convey at the time. I'm very intrigued to see the contrast of sentiments and themes between the two opposing groups. It could provide insight as to how the counterculture movement was so influential and worked to change public opinion on a variety of issues.  
