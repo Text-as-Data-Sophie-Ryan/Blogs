@@ -1,0 +1,58 @@
+```{r}
+library(httr)
+library(jsonlite)
+library(rvest)
+
+# Set your API token
+api_token <- "pJHBJy1tpu-wzcXXYLqx5wq8ZgO3N2Z0q-9IqIrBcDTwo4N8ruiTnyeq-oaOAQq8"
+
+# Define the artist and era
+artist_name <- "Bob Dylan"
+query <- gsub(" ", "%20", artist_name)
+
+# Genius API endpoint
+base_url <- "https://api.genius.com/search"
+
+# Make the API request
+response <- GET(
+  url = base_url,
+  query = list(q = query),
+  add_headers(Authorization = paste("Bearer", api_token))
+)
+
+
+
+```
+```{r}
+queries <- c("Hey Jude The Beatles", "Imagine John Lennon", "Purple Haze Jimi Hendrix")
+
+for (query in queries) {
+  # Encode the query for the URL
+  query <- gsub(" ", "%20", query)
+  
+  # Send the request
+  response <- GET(
+    url = base_url,
+    query = list(q = query),
+    add_headers(Authorization = paste("Bearer", api_token))
+  )
+  
+  # Parse the response
+  if (status_code(response) == 200) {
+    data <- content(response, as = "text", encoding = "UTF-8")
+    results <- fromJSON(data)
+    
+    # Check for hits
+    if (length(results$response$hits) > 0) {
+      song_url <- results$response$hits[[1]]$result$url
+      print(paste("Song URL:", song_url))
+    } else {
+      print(paste("No results for:", query))
+    }
+  } else {
+    print("Failed to get song URL.")
+  }
+}
+
+```
+

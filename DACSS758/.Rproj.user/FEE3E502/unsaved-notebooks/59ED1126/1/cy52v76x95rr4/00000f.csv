@@ -1,0 +1,33 @@
+"0","library(httr)"
+"0","library(jsonlite)"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","# Spotify API Credentials"
+"0","client_id <- ""ed1422d45f4e4a41ae66c01667b9ae9c"""
+"0","client_secret <- ""ec38e39f5b7341dab63e802023a932ce"""
+"0",""
+"0","# Get Access Token"
+"0","res <- POST("
+"0","  ""https://accounts.spotify.com/api/token"","
+"0","  accept_json(),"
+"0","  authenticate(client_id, client_secret),"
+"0","  body = list(grant_type = ""client_credentials""),"
+"0","  encode = ""form"""
+"0",")"
+"0",""
+"0","# Parse the response to get the access token"
+"0","access_token <- content(res)$access_token"
+"0",""

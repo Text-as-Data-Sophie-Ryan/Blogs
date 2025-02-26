@@ -1,0 +1,114 @@
+"0",""
+"0","install.packages(""purrr"")"
+"2","trying URL 'https://cran.rstudio.com/bin/macosx/big-sur-x86_64/contrib/4.4/purrr_1.0.4.tgz'
+"
+"2","Content type 'application/x-gzip'"
+"2"," length 565355 bytes (552 KB)
+"
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","="
+"2","
+"
+"2","downloaded 552 KB
+
+"
+"1","
+"
+"1",""
+"1","The downloaded binary packages are in
+	/var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpClV0mE/downloaded_packages"
+"1",""
+"1","
+"
+"0","library(purrr)"
+"2","
+Attaching package: ‘purrr’
+
+"
+"2","The following object is masked from ‘package:jsonlite’:
+
+    flatten
+
+"
+"0","# Search for songs by artist"
+"0","artist_name <- ""The Beatles"""
+"0","query <- gsub("" "", ""%20"", artist_name)"
+"0","url <- paste0(""https://api.spotify.com/v1/search?q="", query, ""&type=track&limit=10"")"
+"0",""
+"0",""
+"0","# Make the API request"
+"0","res <- GET(url, add_headers(Authorization = paste(""Bearer"", access_token)))"
+"0",""
+"0","# Parse the response"
+"0","data <- content(res, as = ""text"", encoding = ""UTF-8"")"
+"0","results <- fromJSON(data)"
+"0",""
+"0","tracks <- results$tracks$items %>%"
+"0","  mutate("
+"0","    track_name = name,"
+"0","    album_name = album$name,"
+"0","    artist_name = map_chr(artists, ~ .x[[1]]$name),"
+"0","    release_date = album$release_date,"
+"0","    popularity = popularity"
+"0","  ) %>%"
+"0","  select(track_name, album_name, artist_name, release_date, popularity)"
+"1","[1m[33mError[39m in `mutate()`:[22m
+[38;5;232m[36mℹ[38;5;232m In argument: `artist_name = map_chr(artists, ~.x[[1]]$name)`.[39m
+[1mCaused by error in `map_chr()`:[22m
+[38;5;232m[36mℹ[38;5;232m In index: 1.[39m
+[1mCaused by error:[22m
+[33m![39m Result must be length 1, not 0.
+Backtrace:
+[90m  1. [39m... %>% ...
+[90m 10. [39m[1m[94mpurrr::map_chr([39m[22martists, ~.x[[1]]$name[1m[94m)[39m[22m
+[90m 11. [39mpurrr:::map_(""character"", .x, .f, ..., .progress = .progress)
+[90m 14. [39mpurrr:::call_with_cleanup(...)
+"

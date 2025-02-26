@@ -1,0 +1,60 @@
+
+```{r}
+library(httr)
+library(jsonlite)
+library(dplyr)
+
+# Spotify API Credentials
+client_id <- "ed1422d45f4e4a41ae66c01667b9ae9c"
+client_secret <- "ec38e39f5b7341dab63e802023a932ce"
+
+# Get Access Token
+res <- POST(
+  "https://accounts.spotify.com/api/token",
+  accept_json(),
+  authenticate(client_id, client_secret),
+  body = list(grant_type = "client_credentials"),
+  encode = "form"
+)
+
+# Parse the response to get the access token
+access_token <- content(res)$access_token
+
+```
+
+
+
+
+
+```{r}
+
+install.packages("purrr")
+library(purrr)
+
+# Search for songs by artist
+artist_name <- "The Beatles"
+query <- gsub(" ", "%20", artist_name)
+url <- paste0("https://api.spotify.com/v1/search?q=", query, "&type=track&limit=10")
+
+
+# Make the API request
+res <- GET(url, add_headers(Authorization = paste("Bearer", access_token)))
+
+# Parse the response
+data <- content(res, as = "text", encoding = "UTF-8")
+results <- fromJSON(data)
+
+tracks <- results$tracks$items %>%
+  mutate(
+    track_name = name,
+    album_name = album$name,
+    artist_name = map_chr(artists, ~ .x[[1]]$name),
+    release_date = album$release_date,
+    popularity = popularity
+  ) %>%
+  select(track_name, album_name, artist_name, release_date, popularity)
+
+print(tracks)
+
+```
+
