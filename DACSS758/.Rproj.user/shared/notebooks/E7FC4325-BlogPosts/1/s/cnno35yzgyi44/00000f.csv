@@ -1,0 +1,48 @@
+"0","#Loading packages"
+"0","library(rvest)"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(stringr)"
+"0","library(purrr)"
+"0","library(dplyr)"
+"0","library(quanteda.textplots)"
+"0","library(quanteda.sentiment)"
+"2","Loading required package: quanteda
+"
+"2","Package version: 4.2.0
+Unicode version: 14.0
+ICU version: 71.1
+"
+"2","Parallel computing: disabled
+"
+"2","See https://quanteda.io for tutorials and examples.
+"
+"2","
+Attaching package: ‘quanteda.sentiment’
+
+"
+"2","The following object is masked from ‘package:quanteda’:
+
+    data_dictionary_LSD2015
+
+"
+"0","#Defining the Wikipedia URL for the setlist at Woodstock"
+"0","url1 <- ""https://en.wikipedia.org/wiki/List_of_performances_and_events_at_Woodstock_Festival"""
+"0",""
+"0","#Defining the CSS selectors. "
+"0","css_selector <- "".mw-body p + ol"""
+"0","css_selector_artists <- "".mw-body .mw-heading3"""
+"0","special_css <- ""ol"""
