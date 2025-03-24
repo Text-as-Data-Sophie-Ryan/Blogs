@@ -1,0 +1,7 @@
+"0","war_corp <- corpus(kwic_war)"
+"0",""
+"0","war_tokens <- tokens(war_corp)"
+"0",""
+"0","war_dfm <- dfm(war_tokens)"
+"0",""
+"0","textplot_wordcloud(war_dfm, min_count = 3, random_order = FALSE)"

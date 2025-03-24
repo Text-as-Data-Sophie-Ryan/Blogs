@@ -1,0 +1,3 @@
+"0","barplot(doc_topic_distr[1, ], xlab = ""topic"","
+"0","        ylab = ""proportion"", ylim = c(0, 1),"
+"0","        names.arg = 1:ncol(doc_topic_distr))"

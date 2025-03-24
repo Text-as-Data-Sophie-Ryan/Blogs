@@ -1,0 +1,128 @@
+---
+title: "Newspapers"
+format: html
+editor: visual
+---
+
+```{r}
+install.packages(c("tesseract", "pdftools"))
+library(tesseract)
+library(pdftools)
+
+```
+
+```{r}
+pdf_file <- c("/Users/sophieryan/Documents/Github/Blogs/Extremist_Activities_Are_Threa.pdf", "/Users/sophieryan/Documents/Github/Blogs/Nixon_Says_It's_Time_to_Draw_L.pdf", "/Users/sophieryan/Documents/Github/Blogs/Most_of_U.S._is_behind_anti-wa.pdf", "/Users/sophieryan/Documents/Github/Blogs/Bravery_medals_discarded_in_an.pdf", "/Users/sophieryan/Documents/Github/Blogs/War_Protesters_Mass_For_Washin-2.pdf",
+"/Users/sophieryan/Documents/Github/Blogs/250,000_WAR_PROTESTERS_STAGE_P.pdf", "/Users/sophieryan/Documents/Github/Blogs/WAR_RALLY_TODAY_EXPECTS_NEW_AI.pdf","/Users/sophieryan/Documents/Github/Blogs/Agnew_Scores_War_Foes;_Rally_t.pdf")  
+
+```
+
+```{r}
+file.exists(pdf_file)
+```
+
+```{r}
+text <- ocr(pdf_file)
+
+# Display the extracted text
+cat(text)
+```
+```{r}
+writeLines(text, "ocr_output.txt")
+```
+
+```{r}
+newspaper_corpus <- corpus(text)
+```
+
+```{r}
+summary(newspaper_corpus)
+ndoc(newspaper_corpus)
+sum(ntoken(newspaper_corpus))
+```
+```{r}
+news_tokens_clean <- tokens(newspaper_corpus, 
+                       what = "word", 
+                       remove_numbers = TRUE,
+                       remove_punct = TRUE) %>%
+                tokens_tolower()
+
+news_custom_stopwords <- c(stopwords("en"), "ee", "ae", "said", "se", "re", "oe", "eee", "e", "es", "I")
+
+news_tokens_clean <- tokens_select(news_tokens_clean,
+                              pattern = news_custom_stopwords,
+                              selection = "remove")
+
+```
+
+```{r}
+news_dfm <- dfm(news_tokens_clean)
+topfeatures(news_dfm)
+```
+```{r}
+library(quanteda.textplots)
+
+set.seed(1234)
+
+# draw the wordcloud
+textplot_wordcloud(news_dfm, min_count = 10, random_order = FALSE)
+```
+
+```{r}
+sentiment_scores_news <- dfm_lookup(news_dfm, dictionary = data_dictionary_LSD2015)
+
+# convert to df
+sentiment_df_news <- convert(sentiment_scores_news, to = "data.frame")
+
+sentiment_df_news$Text <- as.character(newspaper_corpus)
+
+head(sentiment_df_news)
+```
+
+```{r}
+library(ggplot2)
+sentiment_df_news$polarity <- (sentiment_df_news$positive - sentiment_df_news$negative)/(sentiment_df_news$positive + sentiment_df_news$negative)
+ggplot(sentiment_df_news) +
+  geom_histogram(aes(polarity)) +
+  theme_bw()
+```
+
+```{r}
+news_fcm <- fcm(news_dfm)
+myFeatures <- names(topfeatures(news_dfm, 30))
+
+# retain only those top features as part of our matrix
+smaller_fcm_news <- fcm_select(news_fcm, pattern = myFeatures, selection = "keep")
+
+
+# compute size weight for vertices in network
+size <- log(colSums(smaller_fcm_news))
+
+# create plot
+textplot_network(smaller_fcm_news, vertex_size = size / max(size) * 3)
+```
+```{r}
+kwic_news_peace <- kwic(news_tokens_clean,
+      pattern = c("peace"))
+
+# look at the first few uses
+head(kwic_news_peace)
+
+# now look at a broader window of terms 
+kwic_news_peace <- kwic(news_tokens_clean,
+      pattern = c("peace"),
+      window = 10)
+
+# look at the first few uses
+head(kwic_news_peace)
+```
+```{r}
+news_peace_corp <- corpus(kwic_news_peace)
+
+news_peace_tokens <- tokens(news_peace_corp)
+
+news_peace_dfm <- dfm(news_peace_tokens)
+
+textplot_wordcloud(news_peace_dfm, min_count = 3, random_order = FALSE)
+```
+

@@ -1,0 +1,31 @@
+"0","labelTopics(myModel)"
+"1","Topic 1 Top Words:
+ 	 Highest Prob: g, know, fiddle, life, d, share, well 
+ 	 FREX: g, fiddle, d, f, spoon, #m, memory 
+ 	 Lift: bm, diet, especially, eternal, loose, nearly, sad 
+ 	 Score: fiddle, g, d, spoon, c, f, mean 
+"
+"1","Topic 2 Top Words:
+ 	 Highest Prob: ya, gonna, see, sing, take, share, know 
+ 	 FREX: ba, haze, marrakesh, lo, letter, climb, heal 
+ 	 Lift: 1-2-3-4, aboard, accept, actin, ahh, aim, aimlessly 
+ 	 Score: ba, marrakesh, lo, jingo, heal, ya, express 
+"
+"1","Topic 3 Top Words:
+ 	 Highest Prob: long, day, e, people, see, share, tell 
+ 	 FREX: washed, marching, jesus, b, henry, appears, johnny 
+ 	 Lift: a-lookin, airliner, aloneand, anni, b, backed, backwood 
+ 	 Score: washed, jesus, e, henry, marching, overcome, saturday 
+"
+"1","Topic 4 Top Words:
+ 	 Highest Prob: love, know, well, home, never, share, see 
+ 	 FREX: bah, mum, hop, boom, shaka-laka-laka, tried, book 
+ 	 Lift: a-crying, backbone, bone, book, bootleg, boss, breaking 
+ 	 Score: bah, mum, hop, book, boom, shaka-laka-laka, wrote 
+"
+"1","Topic 5 Top Words:
+ 	 Highest Prob: come, let, stand, make, time, share, way 
+ 	 FREX: q, susie, foxy, burns, burning, dying, shine 
+ 	 Lift: aid, alright, amazed, anna, annie, approaches, bag 
+ 	 Score: burns, q, susie, sweeter, fire, foxy, momma 
+"

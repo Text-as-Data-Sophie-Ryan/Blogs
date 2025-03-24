@@ -1,0 +1,7 @@
+"0","news_peace_corp <- corpus(kwic_news_peace)"
+"0",""
+"0","news_peace_tokens <- tokens(news_peace_corp)"
+"0",""
+"0","news_peace_dfm <- dfm(news_peace_tokens)"
+"0",""
+"0","textplot_wordcloud(news_peace_dfm, min_count = 3, random_order = FALSE)"

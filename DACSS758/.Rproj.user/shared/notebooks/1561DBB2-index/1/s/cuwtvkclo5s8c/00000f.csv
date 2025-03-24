@@ -1,0 +1,18 @@
+"0","# Iterates over each token"
+"0","it <- itoken(tokens2, ids = cleaned_data$artist[1:350], progressbar = FALSE)"
+"0",""
+"0","# Prints iterator"
+"0","it"
+"1","<itoken>
+  Inherits from: <CallbackIterator>
+  Public:
+    callback: function (x) 
+    clone: function (deep = FALSE) 
+    initialize: function (x, callback = identity) 
+    is_complete: active binding
+    length: active binding
+    move_cursor: function () 
+    nextElem: function () 
+    x: GenericIterator, iterator, R6"
+"1","
+"

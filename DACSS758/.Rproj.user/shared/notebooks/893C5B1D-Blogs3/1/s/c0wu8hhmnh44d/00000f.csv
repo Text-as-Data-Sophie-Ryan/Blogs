@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0","sentiment_df_news$polarity <- (sentiment_df_news$positive - sentiment_df_news$negative)/(sentiment_df_news$positive + sentiment_df_news$negative)"
+"0","ggplot(sentiment_df_news) +"
+"0","  geom_histogram(aes(polarity)) +"
+"0","  theme_bw()"

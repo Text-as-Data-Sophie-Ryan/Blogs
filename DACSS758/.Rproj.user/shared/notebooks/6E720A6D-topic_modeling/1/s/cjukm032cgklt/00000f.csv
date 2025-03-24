@@ -1,0 +1,47 @@
+"0","lda_model <- LDA$new(n_topics = 10, doc_topic_prior = 0.1, topic_word_prior = 0.01)"
+"0",""
+"0","# Print other methods for LDA"
+"0","lda_model"
+"1","<WarpLDA>
+  Inherits from: <LDA>
+  Public:
+    clone: function (deep = FALSE) 
+    components: active binding
+    fit_transform: function (x, n_iter = 1000, convergence_tol = 0.001, n_check_convergence = 10, 
+    get_top_words: function (n = 10, topic_number = 1L:private$n_topics, lambda = 1) 
+    initialize: function (n_topics = 10L, doc_topic_prior = 50/n_topics, topic_word_prior = 1/n_topics, 
+    plot: function (lambda.step = 0.1, reorder.topics = FALSE, doc_len = private$doc_len, 
+    topic_word_distribution: active binding
+    transform: function (x, n_iter = 1000, convergence_tol = 0.001, n_check_convergence = 10, 
+  Private:
+    calc_pseudo_loglikelihood: function (ptr = private$ptr) 
+    check_convert_input: function (x) 
+    components_: NULL
+    doc_len: NULL
+    doc_topic_distribution: function () 
+    doc_topic_distribution_with_prior: function () 
+    doc_topic_matrix: NULL
+    doc_topic_prior: 0.1
+    fit_transform_internal: function (model_ptr, n_iter, convergence_tol, n_check_convergence, 
+    get_c_all: function () 
+    get_c_all_local: function () 
+    get_doc_topic_matrix: function (prt, nr) 
+    get_topic_word_count: function () 
+    init_model_dtm: function (x, ptr = private$ptr) 
+    internal_matrix_formats: list
+    is_initialized: FALSE
+    n_iter_inference: 10
+    n_topics: 10
+    ptr: NULL
+    reset_c_local: function () 
+    run_iter_doc: function (update_topics = TRUE, ptr = private$ptr) 
+    run_iter_word: function (update_topics = TRUE, ptr = private$ptr) 
+    seeds: 1569197133.53857 989066870.07886
+    set_c_all: function (x) 
+    set_internal_matrix_formats: function (sparse = NULL, dense = NULL) 
+    topic_word_distribution_with_prior: function () 
+    topic_word_prior: 0.01
+    transform_internal: function (x, n_iter = 1000, convergence_tol = 0.001, n_check_convergence = 10, 
+    vocabulary: NULL"
+"1","
+"

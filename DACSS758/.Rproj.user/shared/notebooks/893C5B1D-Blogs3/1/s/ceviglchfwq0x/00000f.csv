@@ -1,0 +1,7 @@
+"0","library(dplyr)"
+"0",""
+"0","# Replace artist names"
+"0","woodstock_data <- woodstock_data %>%"
+"0","  mutate(artist = ifelse(artist == ""Crosby, Stills, Nash & Young"", "
+"0","                         ""Crosby, Stills & Nash"", "
+"0","                         artist))"

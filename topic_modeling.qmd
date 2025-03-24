@@ -1,0 +1,236 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+```{r}
+# Installs text2vec package (might take a while)
+install.packages('text2vec')
+```
+
+```{r}
+library(text2vec)
+```
+
+
+
+```{r}
+tokens2 <- tolower(cleaned_data$lyrics)
+tokens2 <- word_tokenizer(tokens2)
+head(tokens2, 2)
+```
+
+
+
+```{r}
+# Iterates over each token
+it <- itoken(tokens2, ids = cleaned_data$artist[1:350], progressbar = FALSE)
+
+# Prints iterator
+it
+```
+```{r}
+# Built the vocabulary
+v <- create_vocabulary(it)
+
+# Print vocabulary
+v
+```
+```{r}
+v <- prune_vocabulary(v, term_count_min = 10, doc_proportion_max = 0.2)
+
+# Check dimensions
+dim(v)
+```
+
+```{r}
+vectorizer <- vocab_vectorizer(v)
+```
+
+```{r}
+dtm <- create_dtm(it, vectorizer, type = "dgTMatrix")
+```
+
+
+```{r}
+lda_model <- LDA$new(n_topics = 10, doc_topic_prior = 0.1, topic_word_prior = 0.01)
+
+# Print other methods for LDA
+lda_model
+```
+
+```{r}
+# Fitting model
+doc_topic_distr <-
+  lda_model$fit_transform(x = dtm, n_iter = 1000,
+                          convergence_tol = 0.001, n_check_convergence = 25,
+                          progressbar = FALSE)
+```
+
+```{r}
+barplot(doc_topic_distr[1, ], xlab = "topic",
+        ylab = "proportion", ylim = c(0, 1),
+        names.arg = 1:ncol(doc_topic_distr))
+```
+
+```{r}
+lda_model$get_top_words(n = 10, topic_number = c(4L, 8L, 10L), lambda = 1)
+```
+```{r}
+lda_model$get_top_words(n = 10, topic_number = c(4L, 8L, 10L), lambda = 0.4)
+```
+
+## STM
+```{r}
+install.packages("stm")
+library(stm)
+```
+
+```{r}
+custom_stopwords <- c(stopwords("en"), "baby", "sha", "yum", "yip", "nana", "na", "lyrics", "oh", "got", "x", "yeah", "can", "go", "like", "now", "chorus", "get", "one", "x", "hey")
+all_stopwords <- c(stopwords("english"), custom_stopwords)
+
+# tokenize
+lyric_tokens <- tokens(sentiment_df$Text,
+  remove_numbers = T,
+  remove_punct =  T,
+  remove_symbols = T)
+
+# trim stop words
+lyric_tokens <- tokens_remove(lyric_tokens,
+  all_stopwords)
+
+# create dfm
+myDfm <- dfm(lyric_tokens,
+  tolower=T)
+
+dim(myDfm)
+```
+
+```{r}
+cor_topic_model <- stm(myDfm, K = 5,
+                   verbose = FALSE, init.type = "Spectral")
+```
+
+```{r}
+labelTopics(cor_topic_model)
+```
+```{r}
+findThoughts(cor_topic_model,
+    texts = sentiment_df$Text,
+    topics = c(1:5),
+    n = 1)
+```
+```{r}
+# choose our number of topics
+k <- 5
+
+# specify model
+myModel <- stm(myDfm,
+            K = k,
+            prevalence =~ positive * negative,
+            data = sentiment_df,
+            max.em.its = 300,
+            seed = 1234,
+            init.type = "Spectral")
+
+```
+
+```{r}
+labelTopics(myModel)
+```
+
+```{r}
+plot(myModel, type = "summary")
+```
+```{r}
+# get the words
+myTopicNames <- labelTopics(myModel, n=4)$frex
+
+# set up an empty vector
+myTopicLabels <- rep(NA, k)
+
+# set up a loop to go through the topics and collapse the words to a single name
+for (i in 1:k){
+	myTopicLabels[i] <- paste(myTopicNames[i,], collapse = "_")
+}
+
+# print the names
+myTopicLabels
+```
+
+```{r}
+# estimate effects
+modelEffects <- estimateEffect(formula=1:k~positive,
+        stmobj = myModel,
+        metadata = sentiment_df)
+
+# plot effects
+myRows <- 2
+par(mfrow=c(myRows,3), bty="n", lwd=2)
+for (i in 1:k){
+	plot.estimateEffect(modelEffects,
+        covariate ="positive",
+        xlim=c(-.25,.25),
+        model = myModel,
+        topics = modelEffects$topics[i],
+        method = "difference",
+        cov.value1 = 1,
+        cov.value2=0,
+        main = myTopicLabels[i],
+        printlegend=F,
+        linecol="grey26",
+        labeltype="custom",
+        verbose.labels=F,
+        custom.labels=c(""))
+	par(new=F)
+}
+```
+
+## Clustering 
+
+
+```{r}
+install.packages("quanteda")
+install.packages("tm")
+install.packages("tidytext")
+install.packages("factoextra")
+```
+
+
+```{r}
+library(tidyverse)
+library(quanteda)
+library(tm)
+library(tidytext)
+library(cluster)
+library(factoextra)
+```
+
+
+```{r}
+dfm_matrix <- as.matrix(lyrics_dfm)
+scaled_matrix <- scale(dfm_matrix)
+scaled_matrix[is.na(scaled_matrix)] <- colMeans(scaled_matrix, na.rm = TRUE)[col(scaled_matrix)[is.na(scaled_matrix)]]
+# Replace NaN with 0
+scaled_matrix[is.nan(scaled_matrix)] <- 0
+
+# Replace Inf with 0
+scaled_matrix[is.infinite(scaled_matrix)] <- 0
+
+```
+
+```{r}
+non_constant_cols <- apply(scaled_matrix, 2, var) != 0
+scaled_matrix <- scaled_matrix[, non_constant_cols]
+
+# estimate k-means
+set.seed(54321)
+k_clusters <- 10
+kmeans_result <- kmeans(scaled_matrix, centers = k_clusters, nstart = 20)
+
+# visualize clustering
+fviz_cluster(list(data = scaled_matrix, cluster = kmeans_result$cluster))
+```
+

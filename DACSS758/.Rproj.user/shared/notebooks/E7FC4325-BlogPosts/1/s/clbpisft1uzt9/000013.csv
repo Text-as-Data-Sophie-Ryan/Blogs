@@ -1,0 +1,6 @@
+"0","library(quanteda.textplots)"
+"0",""
+"0","set.seed(1234)"
+"0",""
+"0","# draw the wordcloud"
+"0","textplot_wordcloud(news_dfm, min_count = 10, random_order = FALSE)"

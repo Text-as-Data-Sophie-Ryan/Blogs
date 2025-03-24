@@ -1,0 +1,7 @@
+"0","library(ggplot2)"
+"2","Learn more about the underlying theory at https://ggplot2-book.org/
+"
+"0","sentiment_df$polarity <- (sentiment_df$positive - sentiment_df$negative)/(sentiment_df$positive + sentiment_df$negative)"
+"0","ggplot(sentiment_df) +"
+"0","  geom_histogram(aes(polarity)) +"
+"0","  theme_bw()"

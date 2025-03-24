@@ -1,0 +1,121 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+### Visualizing overall sentiment scores of the song lyric corpus 
+
+```{r}
+library(ggplot2)
+
+sentiment_df$polarity <- (sentiment_df$positive - sentiment_df$negative)/(sentiment_df$positive + sentiment_df$negative)
+ggplot(sentiment_df) +
+  geom_histogram(aes(polarity)) +
+  theme_bw()
+```
+
+
+
+### Looking at some key words in context; "war", "peace", "free". 
+
+```{r}
+kwic_war <- kwic(tokens_clean,
+      pattern = c("war"))
+
+# look at the first few uses
+head(kwic_war)
+
+# now look at a broader window of terms
+kwic_war <- kwic(tokens_clean,
+      pattern = c("war"),
+      window = 10)
+
+# look at the first few uses
+head(kwic_war)
+
+```
+
+```{r}
+kwic_peace <- kwic(tokens_clean,
+      pattern = c("peace"))
+
+# look at the first few uses
+head(kwic_peace)
+
+# now look at a broader window of terms 
+kwic_peace <- kwic(tokens_clean,
+      pattern = c("peace"),
+      window = 10)
+
+# look at the first few uses
+head(kwic_peace)
+```
+
+```{r}
+kwic_free <- kwic(tokens_clean,
+      pattern = c("free"))
+
+# look at the first few uses
+head(kwic_free)
+
+# now look at a broader window of terms 
+kwic_free <- kwic(tokens_clean,
+      pattern = c("free"),
+      window = 10)
+
+# look at the first few uses
+head(kwic_free)
+```
+
+```{r}
+freedom_corp <- corpus(kwic_free)
+
+freedom_tokens <- tokens(freedom_corp)
+
+free_dfm <- dfm(freedom_tokens)
+
+textplot_wordcloud(free_dfm, min_count = 3, random_order = FALSE)
+```
+```{r}
+peace_corp <- corpus(kwic_peace)
+
+peace_tokens <- tokens(peace_corp)
+
+peace_dfm <- dfm(peace_tokens)
+
+textplot_wordcloud(peace_dfm, min_count = 3, random_order = FALSE)
+```
+
+```{r}
+war_corp <- corpus(kwic_war)
+
+war_tokens <- tokens(war_corp)
+
+war_dfm <- dfm(war_tokens)
+
+textplot_wordcloud(war_dfm, min_count = 3, random_order = FALSE)
+```
+
+
+
+```{r}
+sentiment_scores_free <- dfm_lookup(free_dfm, dictionary = data_dictionary_LSD2015)
+
+# convert to df
+sentiment_df_free <- convert(sentiment_scores_free, to = "data.frame")
+
+sentiment_df_free$Text <- as.character(freedom_corp)
+
+head(sentiment_df_free)
+```
+
+```{r}
+sentiment_df_free$polarity <- (sentiment_df_free$positive - sentiment_df_free$negative)/(sentiment_df_free$positive + sentiment_df_free$negative)
+ggplot(sentiment_df_free) +
+  geom_histogram(aes(polarity)) +
+  theme_bw()
+```
+
+
+

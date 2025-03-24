@@ -1,0 +1,8 @@
+"0","sentiment_scores <- dfm_lookup(lyrics_dfm, dictionary = data_dictionary_LSD2015)"
+"0",""
+"0","# convert to df"
+"0","sentiment_df <- convert(sentiment_scores, to = ""data.frame"")"
+"0",""
+"0","sentiment_df$Text <- as.character(lyrics_corpus)"
+"0",""
+"0","head(sentiment_df)"

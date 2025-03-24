@@ -1,0 +1,2 @@
+"0","cor_topic_model <- stm(myDfm, K = 5,"
+"0","                   verbose = FALSE, init.type = ""Spectral"")"

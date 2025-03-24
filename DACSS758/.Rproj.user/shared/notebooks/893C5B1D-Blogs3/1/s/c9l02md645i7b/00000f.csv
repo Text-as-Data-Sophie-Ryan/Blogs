@@ -1,0 +1,8 @@
+"0","sentiment_scores_news <- dfm_lookup(news_dfm, dictionary = data_dictionary_LSD2015)"
+"0",""
+"0","# convert to df"
+"0","sentiment_df_news <- convert(sentiment_scores_news, to = ""data.frame"")"
+"0",""
+"0","sentiment_df_news$Text <- as.character(newspaper_corpus)"
+"0",""
+"0","head(sentiment_df_news)"
