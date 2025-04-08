@@ -1,9 +1,9 @@
 {
     "id": "3207EF82",
-    "path": "~/Documents/GitHub/Blogs/Blogs3.qmd",
+    "path": "~/Documents/GitHub/Blogs/index.qmd",
     "project_path": null,
     "type": "quarto_markdown",
-    "hash": "2045219073",
+    "hash": "1652215488",
     "contents": "",
     "dirty": false,
     "created": 1740670136835.0,
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "453,0",
-        "scrollLine": "447",
+        "cursorPosition": "568,50",
+        "scrollLine": "567",
         "rmdVisualModeLocation": "13181:6202.5"
     },
     "folds": "",
-    "lastKnownWriteTime": 1742852990,
+    "lastKnownWriteTime": 1744141101,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1742852990927,
+    "last_content_update": 1744141101330,
     "read_only": false,
     "read_only_alternatives": []
 }

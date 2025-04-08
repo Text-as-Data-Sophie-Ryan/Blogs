@@ -566,18 +566,24 @@ findThoughts(cor_topic_model,
     n = 1)
 ```
 
-```{r}
+```{r, include=FALSE, message=FALSE, warning=FALSE}
 # choose our number of topics
 k <- 5
 
 # specify model
-myModel <- stm(myDfm,
+myModel <- invisible(
+  suppressMessages(
+    suppressWarnings(
+      stm(myDfm,
             K = k,
             prevalence =~ positive * negative,
             data = sentiment_df,
             max.em.its = 1000,
             seed = 1234,
             init.type = "Spectral")
+      )
+    )
+  )
 
 ```
 
@@ -744,5 +750,64 @@ I'm starting to look at key words in context here as well. As I move forward, I 
 
 Overall, this exploration of my data has provided me with a much better understanding of how I should proceed with this interesting but complex set of corpora. For my lyric corpus, I may need to find a way to add more data, and work on removing more random stop words. I think the topic modeling was helpful, but it did make me realize that song lyrics need to be treated much differently than other more traditional documents. This being said, incorporating the media data may help in making sense of the song themes. I think it will be important moving forward to focus on common key words in both datasets and use that as my way of comparison. I need to continue developing my media corpus by adding more documents. I will also do topic modeling on that corpus. In my final product, I'd like to include word clouds and/or text plot networks that represent both corpora in one single visualization. I think this will provide a much more well rounded understanding of how they relate. This project has been very enjoyable for me so far. I think investigations like this are important. In order to fully understand the attitudes, beliefs, and behaviors of a time period, we can't just look at official documents and mainstream published media. We need to understand how everybody was feeling, and music is often a voice to those who don't have the power and connections to make themselves heard. Particularly in the counterculture movement, art could be just as political as newspapers. I look forward to working more with this data to provide a well rounded, different perspective of the time period. 
 
+# Blog Post 4
+
+## Summary 
+
+As my research project progresses, I've experimented with many different methods to help make sense of my two corpora. My research question aims to investigate how themes and attitudes of 1960's counterculture music compares or contrasts to the sentiment of mainstream media of the time. My data set comes from two sources. Firstly, I had to acquire text that is representative of the music from 1960's counterculture. I decided that the set list from Woodstock would be the perfect way to capture this, considering it was the pinnacle of the movement. The festival was created as a way to promote peace and freedom, and give a voice to young people protesting the Vietnam war and fighting for civil rights. I scraped the list of artists and songs from Wikipedia, then scraped a lyric website to append lyrics to a data frame. I created my corpus out of that data. My second source is ProQuest, where I've looked at historical newspapers from before 1975 that relate to key words, such as "Vietnam war", "protest", "hippies". I used OCR on these documents to create the newspaper corpus. This was somewhat challenging, as I had to manually input the pdf links. As this has been time consuming, I will be adding more links before completing the final product. To address my research question, I've tried a variety of techniques. These include sentiment analysis, clustering, LDA and STM topic modeling. I've created a handful of textplot networks, wordclouds, and histograms to help visualize my results. These methods have helped give me insight on the main themes of my data, and built a solid foundation as I move to the final. 
+
+## Findings 
+
+In my work so far, I've been looking a lot at key words in context. With song lyrics, it can be difficult to understand the results of text analysis. Many of the most common words are not meaningful. For example, I've had to create a lot of custom stopwords, otherwise my findings would be almost entirely "hey", "yeah", "oh", etc. This doesn't mean that the lyrics have not given me interesting results. In my STM topic modeling, The top 5 topics produced some text that I found to be very representative of the main ideas that the counterculture movement was trying to express: 
+
+"Take a sister by her hand Lead her far from this barren land Horror grips us as we watch you die All we can do is echo your anguished cry and Stare as all you human feelings die We are leaving You don't need us Go and take a sister by her hand Lead her far from this foreign land Somewhere where we might laugh again We are leaving You don't need us Sailing ships on the water very free and easy Easy you know the way it's supposed to be Silver people on the shoreline leave us be Very free And gone"
+
+"Hey, it's a long hard road, it's a long hard road It's a long hard road, hey, before we'll be free Hey, before we'll be free Hey, look yonder, tell me what you see Marching to the fields of Vietnam? Looks like Handsome Johnny with an M15 Marching to the Vietnam war, hey, marching to the Vietnam war [...] Hey, what's the use of singing this song Some of you are not even listening Tell me what it is we've got to do"
+
+"We shall overcome, We shall overcome, some day. Oh, deep in my heart, I do believe We shall overcome, some day. We'll walk hand in hand, We'll walk hand in hand, We'll walk hand in hand, some day. Oh, deep in my heart, We shall live in peace, We shall live in peace, We shall live in peace, some day. Oh, deep in my heart, We shall all be free, We shall all be free, We shall all be free, some day."
+
+The first topic shows themes of war, expressing anguish, sadness, and a hope for freedom. The next topic is explicitly talking about Vietnam, feeling rather hopeless, and wondering what's the point of the song if the people don't feel like they are being heard or taken care of. The last topic is a song of faith, that one day the people will be free and live in peace. I thought it was really amazing that the topic modeling was able to produce such succinct summaries of what I was hoping to represent with this analysis. Of course, it isn't perfect, and in fact the last topic in my model was made up of 90% the word "ya". I'll need to continue to fine tune my stopwords for the final project. 
+
+At the end of my last post, I discussed wanting to visualize wordclouds that represent both corpora in one plot, as an easier way to really compare and contrast the themes of each. I've included two of those here. One contains the entire lyric and newspaper dfms, and the other contains smaller dfms from the key word "peace". 
+
+```{r}
+lyric_dfm_grouped <- dfm_group(lyrics_dfm, groups = rep("lyrics", ndoc(lyrics_dfm)))
+news_dfm_grouped   <- dfm_group(news_dfm, groups = rep("news", ndoc(news_dfm)))
+
+
+# Combine them into one
+dfm_combined_ <- rbind(lyric_dfm_grouped, news_dfm_grouped)
+
+# Create a comparison word cloud
+textplot_wordcloud(dfm_combined_,
+                   comparison = TRUE,
+                   max_words = 100,
+                   color = c("blue", "red"))
+```
+
+```{r}
+library(quanteda)
+library(quanteda.textplots)
+
+# Add grouping variable to each dfm
+peace_dfm_grouped <- dfm_group(peace_dfm, groups = rep("peace", ndoc(peace_dfm)))
+news_peace_dfm_grouped   <- dfm_group(news_peace_dfm, groups = rep("news_peace", ndoc(news_peace_dfm)))
+
+
+# Combine them into one
+dfm_combined <- rbind(peace_dfm_grouped, news_peace_dfm_grouped)
+
+# Create a comparison word cloud
+textplot_wordcloud(dfm_combined,
+                   comparison = TRUE,
+                   max_words = 200,
+                   color = c("blue", "red"))
+```
+
+I think these wordclouds are interesting, and a good choice of visualization with respect to my research question. 
+
+## Moving Forward
+
+I have a couple of areas I need to work on as I head into the final stretch. I am still concerned about my lyric corpus, and how it can sometimes be lacking "meat". Readjusting for more variations of the word "yeah" can be time consuming and slightly frustrating. For my newspaper corpus, I still need to add a lot more documents to give me a more well rounded set of texts. I will then proceed with topic modeling on that corpus to see what insights it may reveal. I'd like to keep focusing on comparing key words in context. I believe that will help me stay focused on the goal of the research, particularly with my somewhat messy lyrics. I'm a little worried that the corpus won't be able to provide me with enough real results to draw any sort of reliable conclusions. My plan moving forward is to fine tune the code I've already written, as well as expand on my newspaper corpus. I'm happy with my progress so far, and I think the results are intriguing. This is a topic that I'm really passionate about, so understanding it through the lens of text-as-data has been challenging, but fun. I'm hoping the final results can give a good, well-rounded representation of different points of view of the counterculture movement. Understanding the perspective of both mainstream media and artistic representation is really important in order to grasp the movement as a whole. 
 
 

@@ -1,0 +1,8 @@
+"0","kwic_free <- kwic(tokens_clean,"
+"0","      pattern = c(""free""))"
+"0",""
+"0","# look at the first few uses"
+"0","head(kwic_free)"
+"1","Keyword-in-context with 6 matches"
+"1",""
+"1","."

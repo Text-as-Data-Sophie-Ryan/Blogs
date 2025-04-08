@@ -1,31 +1,31 @@
 "0","labelTopics(cor_topic_model)"
 "1","Topic 1 Top Words:
- 	 Highest Prob: time, long, love, fiddle, never, sing, share 
- 	 FREX: fiddle, marching, book, appears, joe, wrote, comes 
- 	 Lift: aaaah, aah, airliner, already, america, angeles, appers 
- 	 Score: fiddle, marching, joe, appears, book, explain, wrote 
+ 	 Highest Prob: fiddle, die, said, war, share, time, right 
+ 	 FREX: fiddle, marching, joe, war, fields, flying, die 
+ 	 Lift: bird, birmingham, concord, direction, doin, dunkirk, gettysburg 
+ 	 Score: fiddle, marching, war, joe, explain, handsome, yonder 
 "
 "1","Topic 2 Top Words:
- 	 Highest Prob: ya, know, well, love, ever, just, share 
- 	 FREX: mum, ba, sweeter, henry, lo, ya, bone 
- 	 Lift: a-crying, a-half, a-lookin, absurd, adam's, ads, alice's 
- 	 Score: mum, ba, ya, sweeter, henry, jingo, lo 
+ 	 Highest Prob: love, know, just, share, well, kids, mum 
+ 	 FREX: kids, mum, ba, book, wrote, chapter, lo 
+ 	 Lift: a-crying, alice's, anna, annie, backbone, backed, bag 
+ 	 Score: kids, mum, ba, book, wrote, jingo, chapter 
 "
 "1","Topic 3 Top Words:
- 	 Highest Prob: see, home, gonna, time, share, day, take 
- 	 FREX: q, susie, bayou, keeps, overcome, lorraine, letter 
- 	 Lift: 2nd, a-chooglin, accept, actin, afloat, african, alimentari 
- 	 Score: q, susie, overcome, bayou, shall, lorraine, wont 
+ 	 Highest Prob: home, see, stand, gonna, take, share, goin 
+ 	 FREX: goin, q, susie, bayou, stand, overcome, home 
+ 	 Lift: wine, a-bornin, a-chooglin, a-plenty, actin, acting, affect 
+ 	 Score: stand, q, susie, fire, overcome, bayou, lorraine 
 "
 "1","Topic 4 Top Words:
- 	 Highest Prob: come, love, let, stand, know, make, share 
- 	 FREX: wrong, gypsy, burns, darlin, burning, hurt, hundred 
- 	 Lift: ancient, d'you, folks, gypsy, hit, hurting, nearly 
- 	 Score: stand, rollin, burns, fire, momma, gypsy, ring 
+ 	 Highest Prob: come, share, just, never, know, wrong, see 
+ 	 FREX: shine, gypsy, knees, wrong, christmas, momma, bad 
+ 	 Lift: #7, #m, #m7, 2nd, 9-1-1, absurd, achin 
+ 	 Score: rollin, momma, gypsy, e, shine, christmas, knees 
 "
 "1","Topic 5 Top Words:
- 	 Highest Prob: g, share, day, happy, d, washed, well 
- 	 FREX: g, d, washed, hop, jesus, foxy, boom 
- 	 Lift: #7, #m7, 1-2-3-4, a-fightin, ablowing, aboard, affect 
- 	 Score: washed, d, jesus, g, hop, boom, c 
+ 	 Highest Prob: ya, day, long, time, share, happy, try 
+ 	 FREX: washed, hop, jesus, ring, foxy, boom, burns 
+ 	 Lift: amazed, bm, board, burns, cool, curtain, desert 
+ 	 Score: washed, jesus, hop, boom, ya, ring, higher 
 "

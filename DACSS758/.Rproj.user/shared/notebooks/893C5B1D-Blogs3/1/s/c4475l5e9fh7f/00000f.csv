@@ -1,0 +1,4 @@
+"0","sentiment_df_free$polarity <- (sentiment_df_free$positive - sentiment_df_free$negative)/(sentiment_df_free$positive + sentiment_df_free$negative)"
+"0","ggplot(sentiment_df_free) +"
+"0","  geom_histogram(aes(polarity)) +"
+"0","  theme_bw()"

@@ -1,1 +1,2 @@
+"0","#Row 174 provided incorrect lyrics to The Who's song; ""I'm Free"", so I'm removing this row. "
 "0","woodstock_data <- woodstock_data[-174, ]"

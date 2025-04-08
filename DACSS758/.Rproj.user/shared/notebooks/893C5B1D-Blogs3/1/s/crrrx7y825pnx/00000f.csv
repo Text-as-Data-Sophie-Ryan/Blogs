@@ -1,0 +1,8 @@
+"0","freedom_corp <- corpus(kwic_free)"
+"2","Warning: `corpus.kwic()` was deprecated in quanteda 4.0.
+Please use `tokens_select(window)` instead."
+"0","freedom_tokens <- tokens(freedom_corp)"
+"0",""
+"0","free_dfm <- dfm(freedom_tokens)"
+"0",""
+"0","textplot_wordcloud(free_dfm, min_count = 3, random_order = FALSE)"

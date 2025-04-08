@@ -36,7 +36,7 @@
     reset_c_local: function () 
     run_iter_doc: function (update_topics = TRUE, ptr = private$ptr) 
     run_iter_word: function (update_topics = TRUE, ptr = private$ptr) 
-    seeds: 1212479673.87079 1152115603.92701
+    seeds: 1336514404.75527 760306549.791909
     set_c_all: function (x) 
     set_internal_matrix_formats: function (sparse = NULL, dense = NULL) 
     topic_word_distribution_with_prior: function () 

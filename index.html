@@ -57,16 +57,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="Blogs3_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Blogs3_files/libs/quarto-html/quarto.js"></script>
-<script src="Blogs3_files/libs/quarto-html/popper.min.js"></script>
-<script src="Blogs3_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Blogs3_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Blogs3_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Blogs3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Blogs3_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Blogs3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Blogs3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -369,7 +369,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lyrics_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Corpus consisting of 156 documents, showing 100 documents:
+<pre><code>Corpus consisting of 148 documents, showing 100 documents:
 
                                                                Text Types
                                  Richie Havens - "High Flying Bird"    92
@@ -446,7 +446,7 @@ Attaching package: 'curl'</code></pre>
                                              The Who - "It's a Boy"    16
                                                    The Who - "1921"    89
                                         The Who - "Amazing Journey"   121
-                                                 The Who - "Sparks"    81
+                                                 The Who - "Sparks"   131
                                               The Who - "Christmas"   372
                                          The Who - "The Acid Queen"   105
                              The Who - "Do You Think It's Alright?"    33
@@ -547,7 +547,7 @@ Attaching package: 'curl'</code></pre>
      36         6
     267        22
     188        14
-    148         1
+    337         1
     694         5
     252        28
      51         5
@@ -576,11 +576,11 @@ Attaching package: 'curl'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ndoc</span>(lyrics_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 156</code></pre>
+<pre><code>[1] 148</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">ntoken</span>(lyrics_corpus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 33563</code></pre>
+<pre><code>[1] 31931</code></pre>
 </div>
 </div>
 <p>There are 156 documents and 33563 tokens in my corpus.</p>
@@ -604,7 +604,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">topfeatures</span>(lyrics_dfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> love  know share     ×  come   see  time  just never gonna 
-  185   163   158   156   133   126   112   104    98    90 </code></pre>
+  169   152   150   148   131   118   113   104    93    87 </code></pre>
 </div>
 </div>
 <p>Next, I created a few preliminary visualizations to get an idea of what I’ll be working with. I made a wordcloud and a network. Moving forward, I’ll have to figure out ways I can remove more custom “stopwords” that appear in almost all songs but do not add value.</p>
@@ -616,7 +616,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the wordcloud</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(lyrics_dfm, <span class="at">min_count =</span> <span class="dv">20</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -630,7 +630,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># of the matrix we created</span></span>
 <span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(smaller_fcm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18 18</code></pre>
+<pre><code>[1] 19 19</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>myFeatures <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(smaller_dfm, <span class="dv">30</span>))</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -640,7 +640,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># check dimensions</span></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(even_smaller_fcm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18 18</code></pre>
+<pre><code>[1] 19 19</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute size weight for vertices in network</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">colSums</span>(even_smaller_fcm))</span>
@@ -648,7 +648,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create plot</span></span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(even_smaller_fcm, <span class="at">vertex_size =</span> size <span class="sc">/</span> <span class="fu">max</span>(size) <span class="sc">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Finally I found some sentiment scores.</p>
@@ -727,7 +727,7 @@ Attaching package: 'curl'</code></pre>
 (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="looking-at-some-key-words-in-context-war-peace-free." class="level4">
@@ -911,7 +911,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(free_dfm, <span class="at">min_count =</span> <span class="dv">3</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -923,7 +923,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(peace_dfm, <span class="at">min_count =</span> <span class="dv">3</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -935,7 +935,7 @@ Attaching package: 'curl'</code></pre>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(war_dfm, <span class="at">min_count =</span> <span class="dv">3</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>I chose to look more into the “free” dfm, as it has the most data. I looked at sentiment scores for the “free” key word, and found the polarity to be overwhelmingly positive. The distribution here is much less evenly spread than in the overall corpus.</p>
@@ -985,7 +985,7 @@ Attaching package: 'curl'</code></pre>
 (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Overall, looking at key words has been helpful, especially when song lyrics tend to be more vague and abstract. Providing a focal point allows for a more focused approach.</p>
@@ -1000,7 +1000,7 @@ Attaching package: 'curl'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpipHjwB/downloaded_packages</code></pre>
+    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpzvSu3P/downloaded_packages</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1141,7 +1141,7 @@ The downloaded binary packages are in
 <span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print vocabulary</span></span>
 <span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>v</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of docs: 156 
+<pre><code>Number of docs: 148 
 0 stopwords:  ... 
 ngram_min = 1; ngram_max = 1 
 Vocabulary: 
@@ -1151,13 +1151,13 @@ Vocabulary:
    2:     10          1         1
    3:     15          1         1
    4:     17          1         1
-   5:   1910          1         1
+   5:     20          1         1
   ---                            
-3202:    and        697       134
-3203:     to        716       134
-3204:      i        953       131
-3205:    you       1090       129
-3206:    the       1140       145</code></pre>
+3136:    and        662       126
+3137:     to        673       126
+3138:      i        891       123
+3139:    you        995       123
+3140:    the       1110       137</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1166,7 +1166,7 @@ Vocabulary:
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check dimensions</span></span>
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 369   3</code></pre>
+<pre><code>[1] 354   3</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1215,7 +1215,7 @@ Vocabulary:
     reset_c_local: function () 
     run_iter_doc: function (update_topics = TRUE, ptr = private$ptr) 
     run_iter_word: function (update_topics = TRUE, ptr = private$ptr) 
-    seeds: 1696537157.41998 246000720.770894
+    seeds: 1490543941.11182 983859510.083709
     set_c_all: function (x) 
     set_internal_matrix_formats: function (sparse = NULL, dense = NULL) 
     topic_word_distribution_with_prior: function () 
@@ -1231,8 +1231,8 @@ Vocabulary:
 <span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">convergence_tol =</span> <span class="fl">0.001</span>, <span class="at">n_check_convergence =</span> <span class="dv">25</span>,</span>
 <span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">progressbar =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>INFO  [18:04:09.257] early stopping at 125 iteration
-INFO  [18:04:09.459] early stopping at 125 iteration</code></pre>
+<pre><code>INFO  [15:52:24.966] early stopping at 175 iteration
+INFO  [15:52:25.096] early stopping at 100 iteration</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1240,23 +1240,23 @@ INFO  [18:04:09.459] early stopping at 125 iteration</code></pre>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"proportion"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(doc_topic_distr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>lda_model<span class="sc">$</span><span class="fu">get_top_words</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">topic_number =</span> <span class="fu">c</span>(3L, 5L, 6L), <span class="at">lambda =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      [,1]       [,2]       [,3]     
- [1,] "ever"     "gonna"    "need"   
- [2,] "somebody" "hey"      "heart"  
- [3,] "rollin"   "bah"      "free"   
- [4,] "laka"     "war"      "hard"   
- [5,] "much"     "comes"    "hand"   
- [6,] "than"     "yes"      "am"     
- [7,] "told"     "here"     "without"
- [8,] "best"     "care"     "foxy"   
- [9,] "loving"   "marching" "smile"  
-[10,] "tears"    "look"     "how"    </code></pre>
+<pre><code>      [,1]    [,2]     [,3]    
+ [1,] "here"  "said"   "try"   
+ [2,] "they"  "night"  "make"  
+ [3,] "wrong" "rollin" "people"
+ [4,] "comes" "lord"   "rise"  
+ [5,] "good"  "again"  "wont"  
+ [6,] "momma" "give"   "would" 
+ [7,] "told"  "can't"  "run"   
+ [8,] "dream" "did"    "won't" 
+ [9,] "live"  "ooh"    "born"  
+[10,] "too"   "river"  "foxy"  </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1264,7 +1264,7 @@ INFO  [18:04:09.459] early stopping at 125 iteration</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpipHjwB/downloaded_packages</code></pre>
+    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpzvSu3P/downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1292,7 +1292,7 @@ The downloaded binary packages are in
 <span id="cb90-17"><a href="#cb90-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-18"><a href="#cb90-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(myDfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  156 3027</code></pre>
+<pre><code>[1]  148 2959</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1303,30 +1303,30 @@ The downloaded binary packages are in
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labelTopics</span>(cor_topic_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Topic 1 Top Words:
-     Highest Prob: time, long, love, fiddle, never, sing, share 
-     FREX: fiddle, marching, book, appears, joe, wrote, comes 
-     Lift: aaaah, aah, airliner, already, america, angeles, appers 
-     Score: fiddle, marching, joe, appears, book, explain, wrote 
+     Highest Prob: fiddle, die, said, war, share, time, right 
+     FREX: fiddle, marching, joe, war, fields, flying, die 
+     Lift: bird, birmingham, concord, direction, doin, dunkirk, gettysburg 
+     Score: fiddle, marching, war, joe, explain, handsome, yonder 
 Topic 2 Top Words:
-     Highest Prob: ya, know, well, love, ever, just, share 
-     FREX: mum, ba, sweeter, henry, lo, ya, bone 
-     Lift: a-crying, a-half, a-lookin, absurd, adam's, ads, alice's 
-     Score: mum, ba, ya, sweeter, henry, jingo, lo 
+     Highest Prob: love, know, just, share, well, kids, mum 
+     FREX: kids, mum, ba, book, wrote, chapter, lo 
+     Lift: a-crying, alice's, anna, annie, backbone, backed, bag 
+     Score: kids, mum, ba, book, wrote, jingo, chapter 
 Topic 3 Top Words:
-     Highest Prob: see, home, gonna, time, share, day, take 
-     FREX: q, susie, bayou, keeps, overcome, lorraine, letter 
-     Lift: 2nd, a-chooglin, accept, actin, afloat, african, alimentari 
-     Score: q, susie, overcome, bayou, shall, lorraine, wont 
+     Highest Prob: home, see, stand, gonna, take, share, goin 
+     FREX: goin, q, susie, bayou, stand, overcome, home 
+     Lift: wine, a-bornin, a-chooglin, a-plenty, actin, acting, affect 
+     Score: stand, q, susie, fire, overcome, bayou, lorraine 
 Topic 4 Top Words:
-     Highest Prob: come, love, let, stand, know, make, share 
-     FREX: wrong, gypsy, burns, darlin, burning, hurt, hundred 
-     Lift: ancient, d'you, folks, gypsy, hit, hurting, nearly 
-     Score: stand, rollin, burns, fire, momma, gypsy, ring 
+     Highest Prob: come, share, just, never, know, wrong, see 
+     FREX: shine, gypsy, knees, wrong, christmas, momma, bad 
+     Lift: #7, #m, #m7, 2nd, 9-1-1, absurd, achin 
+     Score: rollin, momma, gypsy, e, shine, christmas, knees 
 Topic 5 Top Words:
-     Highest Prob: g, share, day, happy, d, washed, well 
-     FREX: g, d, washed, hop, jesus, foxy, boom 
-     Lift: #7, #m7, 1-2-3-4, a-fightin, ablowing, aboard, affect 
-     Score: washed, d, jesus, g, hop, boom, c </code></pre>
+     Highest Prob: ya, day, long, time, share, happy, try 
+     FREX: washed, hop, jesus, ring, foxy, boom, burns 
+     Lift: amazed, bm, board, burns, cool, curtain, desert 
+     Score: washed, jesus, hop, boom, ya, ring, higher </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1345,672 +1345,63 @@ Topic 5 Top Words:
  Topic 4: 
      Cledus T. Judd/Chris Clark, Cledus Crap Anthems (Sesac)/Of Music, Inc. (Sesac) Twas the fight before Christmas When all through the house No furniture left standing, no tv or couch Our aquarium, heck they even knocked over my Chia Pet Memaw was flung 'cross the room by her hair By her sister Ethel who never fought fair Let's get ready to tumble!!!!!!! The children all wrestled and jumped off the beds Dropping elbows and knees on each other's heads And Mamaw wth her frying pan and Pa with his bat Cleared half the room in ten seconds flat The whole brawl began from an innocent matter When Aunt Flo thought Eugene said "She looks a whole lot fatter" She knocked him through the window he fell with a crash Tore down the gutters and busted his leg really bad You ought to have saw it It looked like he'd been in a motorcycle wreck No Kiddin Yeah awful I couldn't turn to look at it You see both sides of our family have never gotten along And every holiday something always go wrong You ain't supposed to fight but spread joy in this season But when they get the nog they just look for a reason In no time at all everybody joined in And right there we squared off with our closest of kin It's a time for givin said Uncle Bill As he gave a black eye to his brother-in-law Phil I heard somebody say "It's the thought that counts And right now I'm thinking about knocking your butt out" Presents and fists flew all over the room And Nana had some fancy moves with the broom She took out three cousins and knocked down the tree And I ducked just in time she swung out at me It's my favorite time of year Dad always has too much beer Gets on the roof and hunts reindeer Merry Christmas from the whole fam damily Tie the antlers on the dog Save some shine for Santa Claus From all the in-laws and outlaws Merry Christmas from the whole fam damily I crawled to the phone Lord it seemed like a mile And called 9-1-1 which we keep on speed dial In a matter of minutes out the window appeared Flashing blue lights and the Sherrif John Deere Just then six men burst through the door Some yelling "HANDS UP" Some "GET ON THE FLOOR" A stray punch from Grandpa found the sherrif's chin And just for good measure he clocked him again It took all 6 cops to get Grandpa in cuffs You know he gets feisty when he runs out of snuff We all stopped our fighting and cheered Grandpa on Heck I thought he could take them I guess I was wrong As they dragged him outside he yelled "I'VE BEEN FRAMED" He was kicking and screaming and calling them names "You (bleep) You (bleep) Let me go you (bleep) You donut eatin stupid (bleep) son of a (bleep)" We stood on the porch as did all our neighbors Who always took interest in our family's behavior "Mind your own business" we heard Grandma shout And "We'll take back the presents and then come bail you out" By now we'd forgotten what we were fighting for We were battered and bruised but united once more Then we all joined hands and sang "Violent Night" Violent Night And we heard Grandpa exclaim as they drove off out of sight: "Merry Christmas to all...MAN that was a good fight!!!!" Deck your neighbor deck the halls Tis the season for a brawl From all of us to all of y'all Merry Christmas from the whole fam damily Merry Christmas from the whole fam damily Merry Christmas from the whole fam damily Share lyrics × 
  Topic 5: 
-     Oh, happy day Oh, happy day Oh, happy day When Jesus washed Oh when He washed When Jesus washed He washed our sins away Oh, it's a happy day, oh Oh, happy day (Oh, happy day) Oh, happy day (Oh, happy day) Oh, happy day When Jesus washed (When Jesus washed) Oh when He washed (When Jesus washed) When Jesus washed (When Jesus washed) He washed our sins away Oh, it's a happy day, oh He taught me how to watch Fight and pray, fight and pray He taught me how to wash Our sins, sins away Oh, happy day (Oh, happy day) Oh, happy day (Oh, happy day) Oh, happy day When Jesus washed (When Jesus washed) Oh when He washed (When Jesus washed) When Jesus washed (When Jesus washed) He washed our sins away Oh, it's a happy day, oh He taught me how to watch Fight and pray, fight and pray He taught me how to wash All my sins, sins away Oh, happy day (Oh, happy day) Oh, happy day (Oh, happy day) Oh, happy day When Jesus washed (When Jesus washed) Oh when He washed (When Jesus washed) When Jesus washed (When Jesus washed) He washed our sins away Oh, it's a happy day (Happy day) Oh, Lord (Happy day) Oh, look out (Happy day) Amen Share lyrics ×</code></pre>
+     Sing a simple song Yeah, yeah, yeah, yeah Yeah, yeah, yeah, yeah I'm talking, talking, talking, talking, talking in my sleep I'm walking, walking, walking, walking, walking in the street Time is passing, I grow older, things are happening fast All I have to hold on to is a simple song at last Let me hear you say "Ya, ya, ya, ya, ya Ya, ya, ya, ya, ya" Sing a simple song Try a little do re mi fa so la ti do Do re mi fa so la ti do Do re mi fa so la ti do Yeah, yeah, yeah, yeah Yeah, yeah, yeah, yeah I'm living, living, living life with all its ups and downs I'm giving, giving, giving love and smiling at the frowns You're in trouble when you find it's hard for you to smile A simple song might make it better for a little while Let me hear you say "Ya, ya, ya, ya, ya Ya, ya, ya, ya, ya" Yeah, yeah, yeah, yeah Yeah, yeah, yeah, yeah I'm talking, talking, talking, talking I'm walking, walking, walking, walking I'm living, living, living, living I`m giving love and lovin' loving Everybody sing together Ya, ya, ya, ya, ya Ya, ya, ya, ya, ya Sing it in the shower Sing it every hour Sing it, sing it, sing it, sing it, sing it, sing it Sing it with your mother sing it Sing it, mama, sing it Sing it with your father sing it Sing it, papa, sing it, sing it Ya, ya, ya, ya, ya, ya, ya I'm talking now, I'm walking I'm walking, oh yeah Okay, okay now Share lyrics ×</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># choose our number of topics</span></span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify model</span></span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>myModel <span class="ot">&lt;-</span> <span class="fu">stm</span>(myDfm,</span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">K =</span> k,</span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">prevalence =</span><span class="sc">~</span> positive <span class="sc">*</span> negative,</span>
-<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> sentiment_df,</span>
-<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.em.its =</span> <span class="dv">1000</span>,</span>
-<span id="cb97-10"><a href="#cb97-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">seed =</span> <span class="dv">1234</span>,</span>
-<span id="cb97-11"><a href="#cb97-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">init.type =</span> <span class="st">"Spectral"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Beginning Spectral Initialization 
-     Calculating the gram matrix...
-     Finding anchor words...
-    .....
-     Recovering initialization...
-    ..............................
-Initialization complete.
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 1 (approx. per word bound = -6.989) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 2 (approx. per word bound = -6.911, relative change = 1.108e-02) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 3 (approx. per word bound = -6.876, relative change = 5.109e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 4 (approx. per word bound = -6.847, relative change = 4.213e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 5 (approx. per word bound = -6.822, relative change = 3.687e-03) 
-Topic 1: never, time, let, right, long 
- Topic 2: know, well, ya, said, away 
- Topic 3: day, gonna, home, try, around 
- Topic 4: love, come, make, share, heart 
- Topic 5: just, see, life, share, take 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 6 (approx. per word bound = -6.798, relative change = 3.539e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 7 (approx. per word bound = -6.773, relative change = 3.622e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 8 (approx. per word bound = -6.749, relative change = 3.550e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 9 (approx. per word bound = -6.728, relative change = 3.154e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 10 (approx. per word bound = -6.708, relative change = 2.924e-03) 
-Topic 1: never, time, let, long, right 
- Topic 2: know, ya, well, said, away 
- Topic 3: day, gonna, home, around, try 
- Topic 4: love, come, make, heart, stand 
- Topic 5: just, life, share, see, take 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 11 (approx. per word bound = -6.690, relative change = 2.664e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 12 (approx. per word bound = -6.673, relative change = 2.498e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 13 (approx. per word bound = -6.656, relative change = 2.569e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 14 (approx. per word bound = -6.638, relative change = 2.683e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 15 (approx. per word bound = -6.621, relative change = 2.582e-03) 
-Topic 1: never, time, long, right, die 
- Topic 2: know, ya, well, said, tell 
- Topic 3: home, see, around, gonna, try 
- Topic 4: love, come, make, let, heart 
- Topic 5: just, life, share, day, g 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 16 (approx. per word bound = -6.607, relative change = 2.191e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 17 (approx. per word bound = -6.594, relative change = 1.964e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 18 (approx. per word bound = -6.582, relative change = 1.841e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 19 (approx. per word bound = -6.570, relative change = 1.742e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 20 (approx. per word bound = -6.559, relative change = 1.688e-03) 
-Topic 1: never, time, long, right, fiddle 
- Topic 2: know, ya, said, well, take 
- Topic 3: see, home, gonna, try, sometimes 
- Topic 4: love, come, let, make, heart 
- Topic 5: just, day, share, life, g 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 21 (approx. per word bound = -6.549, relative change = 1.503e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 22 (approx. per word bound = -6.540, relative change = 1.384e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 23 (approx. per word bound = -6.531, relative change = 1.394e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 24 (approx. per word bound = -6.523, relative change = 1.263e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 25 (approx. per word bound = -6.516, relative change = 1.070e-03) 
-Topic 1: never, time, long, life, right 
- Topic 2: know, ya, said, well, tell 
- Topic 3: see, home, gonna, try, day 
- Topic 4: love, come, let, make, heart 
- Topic 5: day, share, just, g, keep 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 26 (approx. per word bound = -6.509, relative change = 1.064e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 27 (approx. per word bound = -6.501, relative change = 1.188e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 28 (approx. per word bound = -6.493, relative change = 1.211e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 29 (approx. per word bound = -6.486, relative change = 1.145e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 30 (approx. per word bound = -6.479, relative change = 1.039e-03) 
-Topic 1: never, time, long, life, fiddle 
- Topic 2: know, ya, well, said, tell 
- Topic 3: see, home, gonna, time, day 
- Topic 4: love, come, let, make, stand 
- Topic 5: day, share, g, just, happy 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 31 (approx. per word bound = -6.473, relative change = 9.663e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 32 (approx. per word bound = -6.466, relative change = 1.054e-03) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 33 (approx. per word bound = -6.460, relative change = 8.939e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 34 (approx. per word bound = -6.455, relative change = 8.031e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 35 (approx. per word bound = -6.449, relative change = 8.935e-04) 
-Topic 1: time, never, long, fiddle, die 
- Topic 2: ya, know, well, ever, tell 
- Topic 3: see, home, gonna, time, day 
- Topic 4: love, come, let, make, stand 
- Topic 5: day, g, share, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 36 (approx. per word bound = -6.445, relative change = 7.209e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 37 (approx. per word bound = -6.441, relative change = 5.233e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 38 (approx. per word bound = -6.439, relative change = 3.752e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 39 (approx. per word bound = -6.437, relative change = 2.544e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 40 (approx. per word bound = -6.435, relative change = 2.759e-04) 
-Topic 1: time, long, never, fiddle, die 
- Topic 2: ya, know, well, ever, girl 
- Topic 3: see, home, gonna, time, day 
- Topic 4: love, come, let, make, stand 
- Topic 5: g, day, share, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 41 (approx. per word bound = -6.433, relative change = 3.122e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 42 (approx. per word bound = -6.431, relative change = 3.565e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 43 (approx. per word bound = -6.428, relative change = 4.129e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 44 (approx. per word bound = -6.426, relative change = 3.874e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 45 (approx. per word bound = -6.424, relative change = 3.150e-04) 
-Topic 1: time, long, never, fiddle, comes 
- Topic 2: ya, know, well, ever, girl 
- Topic 3: see, home, gonna, day, time 
- Topic 4: love, come, let, stand, make 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 46 (approx. per word bound = -6.422, relative change = 2.843e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 47 (approx. per word bound = -6.421, relative change = 2.521e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 48 (approx. per word bound = -6.419, relative change = 2.696e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 49 (approx. per word bound = -6.417, relative change = 2.395e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 50 (approx. per word bound = -6.416, relative change = 2.408e-04) 
-Topic 1: time, long, never, fiddle, comes 
- Topic 2: ya, know, well, ever, just 
- Topic 3: see, home, gonna, day, share 
- Topic 4: love, come, let, stand, make 
- Topic 5: g, day, share, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 51 (approx. per word bound = -6.414, relative change = 2.976e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 52 (approx. per word bound = -6.412, relative change = 3.033e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 53 (approx. per word bound = -6.410, relative change = 2.596e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 54 (approx. per word bound = -6.409, relative change = 2.461e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 55 (approx. per word bound = -6.407, relative change = 2.203e-04) 
-Topic 1: time, long, never, fiddle, comes 
- Topic 2: ya, know, well, ever, love 
- Topic 3: see, home, gonna, share, time 
- Topic 4: love, come, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 56 (approx. per word bound = -6.406, relative change = 1.775e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 57 (approx. per word bound = -6.405, relative change = 1.532e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 58 (approx. per word bound = -6.404, relative change = 1.533e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 59 (approx. per word bound = -6.403, relative change = 1.573e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 60 (approx. per word bound = -6.402, relative change = 1.511e-04) 
-Topic 1: time, long, fiddle, never, sing 
- Topic 2: ya, know, well, ever, love 
- Topic 3: see, home, gonna, share, take 
- Topic 4: love, come, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 61 (approx. per word bound = -6.401, relative change = 1.591e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 62 (approx. per word bound = -6.400, relative change = 1.311e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 63 (approx. per word bound = -6.399, relative change = 1.465e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 64 (approx. per word bound = -6.399, relative change = 1.044e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 65 (approx. per word bound = -6.398, relative change = 9.174e-05) 
-Topic 1: time, long, fiddle, never, sing 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: love, come, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 66 (approx. per word bound = -6.397, relative change = 1.169e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 67 (approx. per word bound = -6.397, relative change = 1.263e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 68 (approx. per word bound = -6.396, relative change = 7.757e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 69 (approx. per word bound = -6.396, relative change = 6.353e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 70 (approx. per word bound = -6.395, relative change = 8.811e-05) 
-Topic 1: time, long, fiddle, never, sing 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: love, come, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 71 (approx. per word bound = -6.394, relative change = 1.406e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 72 (approx. per word bound = -6.393, relative change = 2.146e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 73 (approx. per word bound = -6.392, relative change = 2.006e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 74 (approx. per word bound = -6.391, relative change = 1.195e-04) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 75 (approx. per word bound = -6.390, relative change = 8.878e-05) 
-Topic 1: time, long, fiddle, never, sing 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 76 (approx. per word bound = -6.390, relative change = 8.726e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 77 (approx. per word bound = -6.389, relative change = 9.459e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 78 (approx. per word bound = -6.389, relative change = 7.455e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 79 (approx. per word bound = -6.388, relative change = 6.282e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 80 (approx. per word bound = -6.388, relative change = 6.925e-05) 
-Topic 1: time, long, fiddle, never, love 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 81 (approx. per word bound = -6.387, relative change = 7.345e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 82 (approx. per word bound = -6.387, relative change = 6.835e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 83 (approx. per word bound = -6.386, relative change = 4.953e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 84 (approx. per word bound = -6.386, relative change = 2.792e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 85 (approx. per word bound = -6.386, relative change = 2.313e-05) 
-Topic 1: time, long, fiddle, love, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 86 (approx. per word bound = -6.386, relative change = 3.641e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 87 (approx. per word bound = -6.386, relative change = 5.875e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 88 (approx. per word bound = -6.385, relative change = 3.954e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 89 (approx. per word bound = -6.385, relative change = 2.385e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 90 (approx. per word bound = -6.385, relative change = 2.005e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 91 (approx. per word bound = -6.385, relative change = 2.153e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 92 (approx. per word bound = -6.385, relative change = 2.500e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 93 (approx. per word bound = -6.385, relative change = 2.887e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 94 (approx. per word bound = -6.384, relative change = 4.035e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 95 (approx. per word bound = -6.384, relative change = 4.628e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 96 (approx. per word bound = -6.384, relative change = 4.651e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 97 (approx. per word bound = -6.383, relative change = 6.634e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 98 (approx. per word bound = -6.383, relative change = 7.153e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 99 (approx. per word bound = -6.382, relative change = 7.025e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 100 (approx. per word bound = -6.382, relative change = 9.008e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 101 (approx. per word bound = -6.381, relative change = 7.467e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 102 (approx. per word bound = -6.381, relative change = 6.202e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 103 (approx. per word bound = -6.381, relative change = 5.450e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 104 (approx. per word bound = -6.380, relative change = 4.898e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 105 (approx. per word bound = -6.380, relative change = 4.221e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 106 (approx. per word bound = -6.380, relative change = 4.514e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 107 (approx. per word bound = -6.379, relative change = 3.723e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 108 (approx. per word bound = -6.379, relative change = 3.849e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 109 (approx. per word bound = -6.379, relative change = 2.892e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 110 (approx. per word bound = -6.379, relative change = 2.860e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 111 (approx. per word bound = -6.379, relative change = 2.691e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 112 (approx. per word bound = -6.378, relative change = 4.368e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 113 (approx. per word bound = -6.378, relative change = 5.683e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 114 (approx. per word bound = -6.378, relative change = 1.852e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 115 (approx. per word bound = -6.378, relative change = 1.723e-05) 
-Topic 1: time, long, love, fiddle, never 
- Topic 2: ya, know, well, love, ever 
- Topic 3: see, home, gonna, share, take 
- Topic 4: come, love, let, stand, know 
- Topic 5: g, share, day, happy, d 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 116 (approx. per word bound = -6.378, relative change = 1.797e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Completing Iteration 117 (approx. per word bound = -6.378, relative change = 1.119e-05) 
-............................................................................................................................................................
-Completed E-Step (0 seconds). 
-Completed M-Step. 
-Model Converged </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labelTopics</span>(myModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labelTopics</span>(myModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Topic 1 Top Words:
-     Highest Prob: time, long, love, fiddle, never, know, sing 
-     FREX: fiddle, marching, book, appears, joe, comes, long 
-     Lift: bird, birmingham, bomb, book, button, buttons, concord 
-     Score: fiddle, marching, joe, appears, book, handsome, explain 
+     Highest Prob: fiddle, die, time, share, war, said, know 
+     FREX: fiddle, marching, joe, tried, fields, flying, war 
+     Lift: bird, direction, doin, killed, law, makers, nightshirt 
+     Score: fiddle, marching, war, joe, explain, handsome, yonder 
 Topic 2 Top Words:
-     Highest Prob: ya, know, well, love, ever, share, just 
-     FREX: mum, ba, sweeter, henry, lo, ya, bone 
-     Lift: worth, a-bornin, a-crying, a-half, a-lookin, a-plenty, absurd 
-     Score: mum, sweeter, ba, ya, henry, lo, jingo 
+     Highest Prob: love, know, just, share, well, kids, mum 
+     FREX: kids, mum, ba, book, wrote, chapter, lo 
+     Lift: romance, worth, a-crying, aah, ablowing, adam's, ads 
+     Score: kids, mum, book, ba, wrote, chapter, lo 
 Topic 3 Top Words:
-     Highest Prob: see, home, gonna, share, take, time, day 
-     FREX: q, susie, bayou, keeps, overcome, lorraine, home 
-     Lift: add, airliner, aloneand, anni, approaches, avenue, backwood 
-     Score: q, susie, overcome, bayou, shall, wont, lorraine 
+     Highest Prob: home, see, stand, gonna, take, share, goin 
+     FREX: goin, q, susie, bayou, stand, overcome, home 
+     Lift: approaches, boss, coaches, excitement, faced, gazing, glory 
+     Score: stand, q, susie, overcome, fire, bayou, lorraine 
 Topic 4 Top Words:
-     Highest Prob: come, love, let, stand, know, make, share 
-     FREX: wrong, burns, gypsy, darlin, burning, hurt, hundred 
-     Lift: 9-1-1, achin, acting, action, affection, aid, aint 
-     Score: stand, burns, rollin, fire, christmas, gypsy, merry 
+     Highest Prob: come, share, just, never, know, wrong, see 
+     FREX: shine, gypsy, knees, wrong, christmas, momma, rollin 
+     Lift: b, broke, goode, hit, hurting, later, leader 
+     Score: rollin, momma, christmas, e, gypsy, shine, merry 
 Topic 5 Top Words:
-     Highest Prob: g, share, day, happy, d, washed, well 
-     FREX: g, d, washed, hop, jesus, foxy, boom 
-     Lift: amazed, bm, board, desert, doctor, flashin, fortune 
-     Score: washed, d, jesus, g, hop, boom, sins </code></pre>
+     Highest Prob: ya, day, long, time, share, happy, try 
+     FREX: washed, hop, jesus, ring, foxy, boom, burns 
+     Lift: aboard, add, amazed, answered, anyway, argue, bm 
+     Score: washed, jesus, hop, boom, ring, burns, higher </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(myModel, <span class="at">type =</span> <span class="st">"summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(myModel, <span class="at">type =</span> <span class="st">"summary"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the words</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>myTopicNames <span class="ot">&lt;-</span> <span class="fu">labelTopics</span>(myModel, <span class="at">n=</span><span class="dv">4</span>)<span class="sc">$</span>frex</span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set up an empty vector</span></span>
-<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>myTopicLabels <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, k)</span>
-<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set up a loop to go through the topics and collapse the words to a single name</span></span>
-<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k){</span>
-<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a>    myTopicLabels[i] <span class="ot">&lt;-</span> <span class="fu">paste</span>(myTopicNames[i,], <span class="at">collapse =</span> <span class="st">"_"</span>)</span>
-<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print the names</span></span>
-<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a>myTopicLabels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the words</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>myTopicNames <span class="ot">&lt;-</span> <span class="fu">labelTopics</span>(myModel, <span class="at">n=</span><span class="dv">4</span>)<span class="sc">$</span>frex</span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set up an empty vector</span></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>myTopicLabels <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, k)</span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set up a loop to go through the topics and collapse the words to a single name</span></span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k){</span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a>    myTopicLabels[i] <span class="ot">&lt;-</span> <span class="fu">paste</span>(myTopicNames[i,], <span class="at">collapse =</span> <span class="st">"_"</span>)</span>
+<span id="cb100-10"><a href="#cb100-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb100-11"><a href="#cb100-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-12"><a href="#cb100-12" aria-hidden="true" tabindex="-1"></a><span class="co"># print the names</span></span>
+<span id="cb100-13"><a href="#cb100-13" aria-hidden="true" tabindex="-1"></a>myTopicLabels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "fiddle_marching_book_appears" "mum_ba_sweeter_henry"        
-[3] "q_susie_bayou_keeps"          "wrong_burns_gypsy_darlin"    
-[5] "g_d_washed_hop"              </code></pre>
+<pre><code>[1] "fiddle_marching_joe_tried" "kids_mum_ba_book"         
+[3] "goin_q_susie_bayou"        "shine_gypsy_knees_wrong"  
+[5] "washed_hop_jesus_ring"    </code></pre>
 </div>
 </div>
 <p>There seems to be prevalence with themes like “love”, “share”, “home”, “time”. I’ve found that I need to continually tweak my code to account for words in songs that aren’t really words, and this has made it more difficult to uncover overall themes that are often represented in abstract ways. Because of this, it’s helpful to incorporate analysis on historical newspapers from the time of the counterculture movement to see how mainstream media is looking at topics such as the Vietnam war.</p>
@@ -2020,31 +1411,31 @@ Topic 5 Top Words:
 <h3 class="anchored" data-anchor-id="media-analysis">Media Analysis</h3>
 <p>I’m looking at historical newspapers from before 1975 pertaining to topics such as “war”, “protest”, “anti-war”, “Vietnam”. ProQuest provided me with hundreds of documents, some of which I’ve entered into R and performed OCR to create a preliminary corpus. I had to add some custom stopwords here as well, because OCR can’t always pick up on all of the words in blurry, older documents.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tesseract"</span>, <span class="st">"pdftools"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tesseract"</span>, <span class="st">"pdftools"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 The downloaded binary packages are in
-    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpipHjwB/downloaded_packages</code></pre>
+    /var/folders/zr/fc7ynkqn1dqf6nfgqfvm72rr0000gn/T//RtmpzvSu3P/downloaded_packages</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tesseract)</span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdftools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tesseract)</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdftools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Using poppler version 23.04.0</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>pdf_file <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"/Users/sophieryan/Documents/Github/Blogs/Extremist_Activities_Are_Threa.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Nixon_Says_It's_Time_to_Draw_L.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Most_of_U.S._is_behind_anti-wa.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Bravery_medals_discarded_in_an.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/War_Protesters_Mass_For_Washin-2.pdf"</span>,</span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="st">"/Users/sophieryan/Documents/Github/Blogs/250,000_WAR_PROTESTERS_STAGE_P.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/WAR_RALLY_TODAY_EXPECTS_NEW_AI.pdf"</span>,<span class="st">"/Users/sophieryan/Documents/Github/Blogs/Agnew_Scores_War_Foes;_Rally_t.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/EXECUTIVE_URGES_UNITY_WITH_YOU.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Watching_the_Returns_Some_Rac.pdf"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>pdf_file <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"/Users/sophieryan/Documents/Github/Blogs/Extremist_Activities_Are_Threa.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Nixon_Says_It's_Time_to_Draw_L.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Most_of_U.S._is_behind_anti-wa.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Bravery_medals_discarded_in_an.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/War_Protesters_Mass_For_Washin-2.pdf"</span>,</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="st">"/Users/sophieryan/Documents/Github/Blogs/250,000_WAR_PROTESTERS_STAGE_P.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/WAR_RALLY_TODAY_EXPECTS_NEW_AI.pdf"</span>,<span class="st">"/Users/sophieryan/Documents/Github/Blogs/Agnew_Scores_War_Foes;_Rally_t.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/EXECUTIVE_URGES_UNITY_WITH_YOU.pdf"</span>, <span class="st">"/Users/sophieryan/Documents/Github/Blogs/Watching_the_Returns_Some_Rac.pdf"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking that the pdfs work in my environment</span></span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.exists</span>(pdf_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Checking that the pdfs work in my environment</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.exists</span>(pdf_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="fu">ocr</span>(pdf_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="fu">ocr</span>(pdf_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Converting page 1 to Extremist_Activities_Are_Threa_1.png... done!
 Converting page 1 to Nixon_Says_It's_Time_to_Draw_L_1.png... done!
@@ -2063,13 +1454,13 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(text, <span class="st">"ocr_output.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(text, <span class="st">"ocr_output.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>newspaper_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>newspaper_corpus <span class="ot">&lt;-</span> <span class="fu">corpus</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(newspaper_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(newspaper_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Corpus consisting of 14 documents, showing 14 documents:
 
@@ -2089,31 +1480,31 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
  text13   384    747        25
  text14   605   1233        47</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ndoc</span>(newspaper_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ndoc</span>(newspaper_corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">ntoken</span>(newspaper_corpus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">ntoken</span>(newspaper_corpus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13401</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>news_tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens</span>(newspaper_corpus, </span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">what =</span> <span class="st">"word"</span>, </span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tokens_tolower</span>()</span>
-<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>news_custom_stopwords <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">"en"</span>), <span class="st">"ee"</span>, <span class="st">"ae"</span>, <span class="st">"said"</span>, <span class="st">"se"</span>, <span class="st">"re"</span>, <span class="st">"oe"</span>, <span class="st">"eee"</span>, <span class="st">"e"</span>, <span class="st">"es"</span>, <span class="st">"I"</span>)</span>
-<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a>news_tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(news_tokens_clean,</span>
-<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">pattern =</span> news_custom_stopwords,</span>
-<span id="cb121-11"><a href="#cb121-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">selection =</span> <span class="st">"remove"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>news_tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens</span>(newspaper_corpus, </span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">what =</span> <span class="st">"word"</span>, </span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_numbers =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">remove_punct =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">tokens_tolower</span>()</span>
+<span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-7"><a href="#cb119-7" aria-hidden="true" tabindex="-1"></a>news_custom_stopwords <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">stopwords</span>(<span class="st">"en"</span>), <span class="st">"ee"</span>, <span class="st">"ae"</span>, <span class="st">"said"</span>, <span class="st">"se"</span>, <span class="st">"re"</span>, <span class="st">"oe"</span>, <span class="st">"eee"</span>, <span class="st">"e"</span>, <span class="st">"es"</span>, <span class="st">"I"</span>)</span>
+<span id="cb119-8"><a href="#cb119-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="#cb119-9" aria-hidden="true" tabindex="-1"></a>news_tokens_clean <span class="ot">&lt;-</span> <span class="fu">tokens_select</span>(news_tokens_clean,</span>
+<span id="cb119-10"><a href="#cb119-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">pattern =</span> news_custom_stopwords,</span>
+<span id="cb119-11"><a href="#cb119-11" aria-hidden="true" tabindex="-1"></a>                              <span class="at">selection =</span> <span class="st">"remove"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(news_tokens_clean)</span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">topfeatures</span>(news_dfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>news_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(news_tokens_clean)</span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">topfeatures</span>(news_dfm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         |        new        war washington  president       york permission 
        187         43         36         31         29         29         26 
@@ -2123,25 +1514,25 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
 </div>
 <p>This wordcloud helps visualize the dfm overall.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the wordcloud</span></span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(news_dfm, <span class="at">min_count =</span> <span class="dv">10</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="co"># draw the wordcloud</span></span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(news_dfm, <span class="at">min_count =</span> <span class="dv">10</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>sentiment_scores_news <span class="ot">&lt;-</span> <span class="fu">dfm_lookup</span>(news_dfm, <span class="at">dictionary =</span> data_dictionary_LSD2015)</span>
-<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to df</span></span>
-<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>sentiment_df_news <span class="ot">&lt;-</span> <span class="fu">convert</span>(sentiment_scores_news, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
-<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a>sentiment_df_news<span class="sc">$</span>Text <span class="ot">&lt;-</span> <span class="fu">as.character</span>(newspaper_corpus)</span>
-<span id="cb125-7"><a href="#cb125-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb125-8"><a href="#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentiment_df_news)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>sentiment_scores_news <span class="ot">&lt;-</span> <span class="fu">dfm_lookup</span>(news_dfm, <span class="at">dictionary =</span> data_dictionary_LSD2015)</span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to df</span></span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>sentiment_df_news <span class="ot">&lt;-</span> <span class="fu">convert</span>(sentiment_scores_news, <span class="at">to =</span> <span class="st">"data.frame"</span>)</span>
+<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>sentiment_df_news<span class="sc">$</span>Text <span class="ot">&lt;-</span> <span class="fu">as.character</span>(newspaper_corpus)</span>
+<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentiment_df_news)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  doc_id negative positive neg_positive neg_negative
 1  text1       41       11            0            0
@@ -2160,43 +1551,43 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>sentiment_df_news<span class="sc">$</span>polarity <span class="ot">&lt;-</span> (sentiment_df_news<span class="sc">$</span>positive <span class="sc">-</span> sentiment_df_news<span class="sc">$</span>negative)<span class="sc">/</span>(sentiment_df_news<span class="sc">$</span>positive <span class="sc">+</span> sentiment_df_news<span class="sc">$</span>negative)</span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sentiment_df_news) <span class="sc">+</span></span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(polarity)) <span class="sc">+</span></span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>sentiment_df_news<span class="sc">$</span>polarity <span class="ot">&lt;-</span> (sentiment_df_news<span class="sc">$</span>positive <span class="sc">-</span> sentiment_df_news<span class="sc">$</span>negative)<span class="sc">/</span>(sentiment_df_news<span class="sc">$</span>positive <span class="sc">+</span> sentiment_df_news<span class="sc">$</span>negative)</span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sentiment_df_news) <span class="sc">+</span></span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(polarity)) <span class="sc">+</span></span>
+<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The sentiments in the newspaper corpus are much more negative, and are not as evenly spread as the song lyric corpus.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>news_fcm <span class="ot">&lt;-</span> <span class="fu">fcm</span>(news_dfm)</span>
-<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>myFeatures <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(news_dfm, <span class="dv">30</span>))</span>
-<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="co"># retain only those top features as part of our matrix</span></span>
-<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a>smaller_fcm_news <span class="ot">&lt;-</span> <span class="fu">fcm_select</span>(news_fcm, <span class="at">pattern =</span> myFeatures, <span class="at">selection =</span> <span class="st">"keep"</span>)</span>
-<span id="cb129-6"><a href="#cb129-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-7"><a href="#cb129-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-8"><a href="#cb129-8" aria-hidden="true" tabindex="-1"></a><span class="co"># compute size weight for vertices in network</span></span>
-<span id="cb129-9"><a href="#cb129-9" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">colSums</span>(smaller_fcm_news))</span>
-<span id="cb129-10"><a href="#cb129-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-11"><a href="#cb129-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create plot</span></span>
-<span id="cb129-12"><a href="#cb129-12" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(smaller_fcm_news, <span class="at">vertex_size =</span> size <span class="sc">/</span> <span class="fu">max</span>(size) <span class="sc">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>news_fcm <span class="ot">&lt;-</span> <span class="fu">fcm</span>(news_dfm)</span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>myFeatures <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">topfeatures</span>(news_dfm, <span class="dv">30</span>))</span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="co"># retain only those top features as part of our matrix</span></span>
+<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>smaller_fcm_news <span class="ot">&lt;-</span> <span class="fu">fcm_select</span>(news_fcm, <span class="at">pattern =</span> myFeatures, <span class="at">selection =</span> <span class="st">"keep"</span>)</span>
+<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="co"># compute size weight for vertices in network</span></span>
+<span id="cb127-9"><a href="#cb127-9" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">colSums</span>(smaller_fcm_news))</span>
+<span id="cb127-10"><a href="#cb127-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-11"><a href="#cb127-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create plot</span></span>
+<span id="cb127-12"><a href="#cb127-12" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_network</span>(smaller_fcm_news, <span class="at">vertex_size =</span> size <span class="sc">/</span> <span class="fu">max</span>(size) <span class="sc">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>I looked at the keyword “peace”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>kwic_news_peace <span class="ot">&lt;-</span> <span class="fu">kwic</span>(news_tokens_clean,</span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"peace"</span>))</span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the first few uses</span></span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(kwic_news_peace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>kwic_news_peace <span class="ot">&lt;-</span> <span class="fu">kwic</span>(news_tokens_clean,</span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"peace"</span>))</span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the first few uses</span></span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(kwic_news_peace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Keyword-in-context with 6 matches.                                                                  
   [text5, 53] american citizens told administration want | peace |
@@ -2213,13 +1604,13 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
  justice strations week says take         
  shut government groups housewives hippies</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now look at a broader window of terms </span></span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>kwic_news_peace <span class="ot">&lt;-</span> <span class="fu">kwic</span>(news_tokens_clean,</span>
-<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"peace"</span>),</span>
-<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">window =</span> <span class="dv">10</span>)</span>
-<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the first few uses</span></span>
-<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(kwic_news_peace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now look at a broader window of terms </span></span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>kwic_news_peace <span class="ot">&lt;-</span> <span class="fu">kwic</span>(news_tokens_clean,</span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">"peace"</span>),</span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">window =</span> <span class="dv">10</span>)</span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the first few uses</span></span>
+<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(kwic_news_peace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Keyword-in-context with 6 matches.             
   [text5, 53]
@@ -2252,15 +1643,15 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>news_peace_corp <span class="ot">&lt;-</span> <span class="fu">corpus</span>(kwic_news_peace)</span>
-<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>news_peace_tokens <span class="ot">&lt;-</span> <span class="fu">tokens</span>(news_peace_corp)</span>
-<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a>news_peace_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(news_peace_tokens)</span>
-<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(news_peace_dfm, <span class="at">min_count =</span> <span class="dv">3</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>news_peace_corp <span class="ot">&lt;-</span> <span class="fu">corpus</span>(kwic_news_peace)</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>news_peace_tokens <span class="ot">&lt;-</span> <span class="fu">tokens</span>(news_peace_corp)</span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a>news_peace_dfm <span class="ot">&lt;-</span> <span class="fu">dfm</span>(news_peace_tokens)</span>
+<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(news_peace_dfm, <span class="at">min_count =</span> <span class="dv">3</span>, <span class="at">random_order =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Blogs3_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>I’m starting to look at key words in context here as well. As I move forward, I want to directly compare themes in each corpus as they relate to particular words. I think seeing differences in sentiments in this way will provide more insight as to how the themes compared. It is clear that a lot of the tokens related to “students”, “peace” and “protesters”. I’m excited to see what further analysis may reveal about these two corpora.</p>
@@ -2269,6 +1660,65 @@ Converting page 1 to Watching_the_Returns_Some_Rac_1.png... done!</code></pre>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
 <p>Overall, this exploration of my data has provided me with a much better understanding of how I should proceed with this interesting but complex set of corpora. For my lyric corpus, I may need to find a way to add more data, and work on removing more random stop words. I think the topic modeling was helpful, but it did make me realize that song lyrics need to be treated much differently than other more traditional documents. This being said, incorporating the media data may help in making sense of the song themes. I think it will be important moving forward to focus on common key words in both datasets and use that as my way of comparison. I need to continue developing my media corpus by adding more documents. I will also do topic modeling on that corpus. In my final product, I’d like to include word clouds and/or text plot networks that represent both corpora in one single visualization. I think this will provide a much more well rounded understanding of how they relate. This project has been very enjoyable for me so far. I think investigations like this are important. In order to fully understand the attitudes, beliefs, and behaviors of a time period, we can’t just look at official documents and mainstream published media. We need to understand how everybody was feeling, and music is often a voice to those who don’t have the power and connections to make themselves heard. Particularly in the counterculture movement, art could be just as political as newspapers. I look forward to working more with this data to provide a well rounded, different perspective of the time period.</p>
+</section>
+</section>
+<section id="blog-post-4" class="level1">
+<h1>Blog Post 4</h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>As my research project progresses, I’ve experimented with many different methods to help make sense of my two corpora. My research question aims to investigate how themes and attitudes of 1960’s counterculture music compares or contrasts to the sentiment of mainstream media of the time. My data set comes from two sources. Firstly, I had to acquire text that is representative of the music from 1960’s counterculture. I decided that the set list from Woodstock would be the perfect way to capture this, considering it was the pinnacle of the movement. The festival was created as a way to promote peace and freedom, and give a voice to young people protesting the Vietnam war and fighting for civil rights. I scraped the list of artists and songs from Wikipedia, then scraped a lyric website to append lyrics to a data frame. I created my corpus out of that data. My second source is ProQuest, where I’ve looked at historical newspapers from before 1975 that relate to key words, such as “Vietnam war”, “protest”, “hippies”. I used OCR on these documents to create the newspaper corpus. This was somewhat challenging, as I had to manually input the pdf links. As this has been time consuming, I will be adding more links before completing the final product. To address my research question, I’ve tried a variety of techniques. These include sentiment analysis, clustering, LDA and STM topic modeling. I’ve created a handful of textplot networks, wordclouds, and histograms to help visualize my results. These methods have helped give me insight on the main themes of my data, and built a solid foundation as I move to the final.</p>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<p>In my work so far, I’ve been looking a lot at key words in context. With song lyrics, it can be difficult to understand the results of text analysis. Many of the most common words are not meaningful. For example, I’ve had to create a lot of custom stopwords, otherwise my findings would be almost entirely “hey”, “yeah”, “oh”, etc. This doesn’t mean that the lyrics have not given me interesting results. In my STM topic modeling, The top 5 topics produced some text that I found to be very representative of the main ideas that the counterculture movement was trying to express:</p>
+<p>“Take a sister by her hand Lead her far from this barren land Horror grips us as we watch you die All we can do is echo your anguished cry and Stare as all you human feelings die We are leaving You don’t need us Go and take a sister by her hand Lead her far from this foreign land Somewhere where we might laugh again We are leaving You don’t need us Sailing ships on the water very free and easy Easy you know the way it’s supposed to be Silver people on the shoreline leave us be Very free And gone”</p>
+<p>“Hey, it’s a long hard road, it’s a long hard road It’s a long hard road, hey, before we’ll be free Hey, before we’ll be free Hey, look yonder, tell me what you see Marching to the fields of Vietnam? Looks like Handsome Johnny with an M15 Marching to the Vietnam war, hey, marching to the Vietnam war […] Hey, what’s the use of singing this song Some of you are not even listening Tell me what it is we’ve got to do”</p>
+<p>“We shall overcome, We shall overcome, some day. Oh, deep in my heart, I do believe We shall overcome, some day. We’ll walk hand in hand, We’ll walk hand in hand, We’ll walk hand in hand, some day. Oh, deep in my heart, We shall live in peace, We shall live in peace, We shall live in peace, some day. Oh, deep in my heart, We shall all be free, We shall all be free, We shall all be free, some day.”</p>
+<p>The first topic shows themes of war, expressing anguish, sadness, and a hope for freedom. The next topic is explicitly talking about Vietnam, feeling rather hopeless, and wondering what’s the point of the song if the people don’t feel like they are being heard or taken care of. The last topic is a song of faith, that one day the people will be free and live in peace. I thought it was really amazing that the topic modeling was able to produce such succinct summaries of what I was hoping to represent with this analysis. Of course, it isn’t perfect, and in fact the last topic in my model was made up of 90% the word “ya”. I’ll need to continue to fine tune my stopwords for the final project.</p>
+<p>At the end of my last post, I discussed wanting to visualize wordclouds that represent both corpora in one plot, as an easier way to really compare and contrast the themes of each. I’ve included two of those here. One contains the entire lyric and newspaper dfms, and the other contains smaller dfms from the key word “peace”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>lyric_dfm_grouped <span class="ot">&lt;-</span> <span class="fu">dfm_group</span>(lyrics_dfm, <span class="at">groups =</span> <span class="fu">rep</span>(<span class="st">"lyrics"</span>, <span class="fu">ndoc</span>(lyrics_dfm)))</span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>news_dfm_grouped   <span class="ot">&lt;-</span> <span class="fu">dfm_group</span>(news_dfm, <span class="at">groups =</span> <span class="fu">rep</span>(<span class="st">"news"</span>, <span class="fu">ndoc</span>(news_dfm)))</span>
+<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-5"><a href="#cb133-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine them into one</span></span>
+<span id="cb133-6"><a href="#cb133-6" aria-hidden="true" tabindex="-1"></a>dfm_combined_ <span class="ot">&lt;-</span> <span class="fu">rbind</span>(lyric_dfm_grouped, news_dfm_grouped)</span>
+<span id="cb133-7"><a href="#cb133-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-8"><a href="#cb133-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a comparison word cloud</span></span>
+<span id="cb133-9"><a href="#cb133-9" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(dfm_combined_,</span>
+<span id="cb133-10"><a href="#cb133-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">comparison =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb133-11"><a href="#cb133-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">max_words =</span> <span class="dv">100</span>,</span>
+<span id="cb133-12"><a href="#cb133-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textplots)</span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add grouping variable to each dfm</span></span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a>peace_dfm_grouped <span class="ot">&lt;-</span> <span class="fu">dfm_group</span>(peace_dfm, <span class="at">groups =</span> <span class="fu">rep</span>(<span class="st">"peace"</span>, <span class="fu">ndoc</span>(peace_dfm)))</span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a>news_peace_dfm_grouped   <span class="ot">&lt;-</span> <span class="fu">dfm_group</span>(news_peace_dfm, <span class="at">groups =</span> <span class="fu">rep</span>(<span class="st">"news_peace"</span>, <span class="fu">ndoc</span>(news_peace_dfm)))</span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine them into one</span></span>
+<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a>dfm_combined <span class="ot">&lt;-</span> <span class="fu">rbind</span>(peace_dfm_grouped, news_peace_dfm_grouped)</span>
+<span id="cb134-11"><a href="#cb134-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-12"><a href="#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a comparison word cloud</span></span>
+<span id="cb134-13"><a href="#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="fu">textplot_wordcloud</span>(dfm_combined,</span>
+<span id="cb134-14"><a href="#cb134-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">comparison =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb134-15"><a href="#cb134-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">max_words =</span> <span class="dv">200</span>,</span>
+<span id="cb134-16"><a href="#cb134-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>I think these wordclouds are interesting, and a good choice of visualization with respect to my research question.</p>
+</section>
+<section id="moving-forward" class="level2">
+<h2 class="anchored" data-anchor-id="moving-forward">Moving Forward</h2>
+<p>I have a couple of areas I need to work on as I head into the final stretch. I am still concerned about my lyric corpus, and how it can sometimes be lacking “meat”. Readjusting for more variations of the word “yeah” can be time consuming and slightly frustrating. For my newspaper corpus, I still need to add a lot more documents to give me a more well rounded set of texts. I will then proceed with topic modeling on that corpus to see what insights it may reveal. I’d like to keep focusing on comparing key words in context. I believe that will help me stay focused on the goal of the research, particularly with my somewhat messy lyrics. I’m a little worried that the corpus won’t be able to provide me with enough real results to draw any sort of reliable conclusions. My plan moving forward is to fine tune the code I’ve already written, as well as expand on my newspaper corpus. I’m happy with my progress so far, and I think the results are intriguing. This is a topic that I’m really passionate about, so understanding it through the lens of text-as-data has been challenging, but fun. I’m hoping the final results can give a good, well-rounded representation of different points of view of the counterculture movement. Understanding the perspective of both mainstream media and artistic representation is really important in order to grasp the movement as a whole.</p>
 </section>
 </section>
 
